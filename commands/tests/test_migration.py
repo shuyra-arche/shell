@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-"""Portable source-preservation and pending-manifest contract for this extraction.
+"""Portable source-preservation and final-manifest contract for this extraction.
 
 This check does not import or emulate Shell. It reverses only the two entry-point
 substitutions applied at the extraction boundary, then compares the reconstructed
-bytes with the recorded original SHA-256 values.
+bytes with the recorded original SHA-256 values. A fail-closed template branch is
+retained for historical preparation, but the final-state test requires the
+materialized manifest and the actual immutable Shell revision.
 """
 
 from __future__ import annotations
 
 import hashlib
 import json
-import re
 import tomllib
 import unittest
 from pathlib import Path
@@ -20,7 +21,10 @@ NAMES = ("emit", "upper", "fail", "spin", "workers")
 
 SOURCE_REVISION = "94e114614bec53424ac55e640fc80cf19a3e7107"
 SOURCE_COMMIT = "35b3d73e13f695c935665efa6d79b12265af98e7"
-FILTERED_COMMIT = "d3848262c01eefbe03526959a7eecfb75380eebf"
+FILTERED_COMMIT = "bdf4f0e7893fcd0c28fc091fe62d1cc85d8ae400"
+ISOLATED_FILTERED_COMMIT = "d3848262c01eefbe03526959a7eecfb75380eebf"
+PREPARED_ARCHIVE_COMMIT = "16a6bb6740f9f3c3994b89d34eabfdb157a452c5"
+PREPARED_IMPORTED_COMMIT = "8d8d39a44a7540dd76848ae404840aee343ea462"
 SOURCE_PATHS = {
     "emit": "programs/src/user/emit/main.rs",
     "upper": "programs/src/user/upper/main.rs",
@@ -36,6 +40,7 @@ PROGRAMS_ATTRIBUTE = b"#[programs::entry]"
 
 MARKER = "@SHELL_PROVIDER_REV@"
 SHELL_URL = "https://github.com/shuyra-arche/shell.git"
+SHELL_REVISION = "b910582fc9dc0fd732f279d94f2cfca89f4c8c8f"
 PINNED = {
     "pipe-client": (
         "https://github.com/shuyra-arche/pipe.git",
@@ -55,7 +60,6 @@ PINNED = {
     ),
 }
 EXPECTED_DEPENDENCIES = {"shell-client", *PINNED}
-HEX40 = re.compile(r"\A[0-9a-f]{40}\Z")
 
 
 def load_toml(path: Path) -> dict:
@@ -75,7 +79,22 @@ class MigrationContract(unittest.TestCase):
         history = self.provenance["history"]
         self.assertEqual(history["source_commit"], SOURCE_COMMIT)
         self.assertEqual(history["filtered_commit"], FILTERED_COMMIT)
-        self.assertEqual(history["mapping"][SOURCE_COMMIT], FILTERED_COMMIT)
+        self.assertEqual(history["mapping"], {SOURCE_COMMIT: FILTERED_COMMIT})
+        self.assertEqual(
+            history["isolated_filtered_commit"], ISOLATED_FILTERED_COMMIT
+        )
+        self.assertEqual(
+            history["isolated_mapping"],
+            {SOURCE_COMMIT: ISOLATED_FILTERED_COMMIT},
+        )
+        self.assertEqual(history["prepared_archive_commit"], PREPARED_ARCHIVE_COMMIT)
+        self.assertEqual(
+            history["prepared_imported_commit"], PREPARED_IMPORTED_COMMIT
+        )
+        self.assertEqual(
+            history["prepared_mapping"],
+            {PREPARED_ARCHIVE_COMMIT: PREPARED_IMPORTED_COMMIT},
+        )
         self.assertEqual(history["author"]["name"], "anreonyr")
         self.assertEqual(history["author"]["email"], "anreonyr@gmail.com")
         self.assertEqual(history["authored_at"], "2026-10-09T18:50:20Z")
@@ -157,17 +176,14 @@ class MigrationContract(unittest.TestCase):
         )
         text = materialized.read_text(encoding="utf-8")
         self.assertNotIn(MARKER, text)
-        data = tomllib.loads(text)
-        revision = data["dependencies"]["shell-client"]["rev"]
-        self.assertRegex(
-            revision,
-            HEX40,
-            "a finalized shell-client revision must be a full immutable 40-hex revision",
-        )
-        return data, False
+        return tomllib.loads(text), False
 
     def test_runtime_manifest_coordinates_and_immutable_pins(self) -> None:
         data, pending = self._runtime_manifest()
+        self.assertFalse(
+            pending,
+            "final state requires materialized commands/Cargo.toml with no marker",
+        )
 
         workspace = data["workspace"]
         self.assertEqual(workspace["resolver"], "3")
@@ -194,12 +210,10 @@ class MigrationContract(unittest.TestCase):
 
         dependencies = data["dependencies"]
         self.assertEqual(set(dependencies), EXPECTED_DEPENDENCIES)
-        shell = dependencies["shell-client"]
-        if pending:
-            self.assertEqual(shell, {"git": SHELL_URL, "rev": MARKER})
-        else:
-            self.assertRegex(shell["rev"], HEX40)
-            self.assertEqual(shell, {"git": SHELL_URL, "rev": shell["rev"]})
+        self.assertEqual(
+            dependencies["shell-client"],
+            {"git": SHELL_URL, "rev": SHELL_REVISION},
+        )
 
         for name, (url, revision) in PINNED.items():
             self.assertEqual(dependencies[name], {"git": url, "rev": revision})

@@ -5,7 +5,7 @@ use unit::ImageBuild;
 
 pub const EMIT: ImageBuild = ImageBuild {
     image: "emit",
-    manifest: "Cargo.toml",
+    manifest: "commands/Cargo.toml",
     package: "shell-command-images",
     bin: "emit",
     features: &[],
@@ -16,7 +16,7 @@ pub const EMIT: ImageBuild = ImageBuild {
 
 pub const UPPER: ImageBuild = ImageBuild {
     image: "upper",
-    manifest: "Cargo.toml",
+    manifest: "commands/Cargo.toml",
     package: "shell-command-images",
     bin: "upper",
     features: &[],
@@ -27,7 +27,7 @@ pub const UPPER: ImageBuild = ImageBuild {
 
 pub const FAIL: ImageBuild = ImageBuild {
     image: "fail",
-    manifest: "Cargo.toml",
+    manifest: "commands/Cargo.toml",
     package: "shell-command-images",
     bin: "fail",
     features: &[],
@@ -38,7 +38,7 @@ pub const FAIL: ImageBuild = ImageBuild {
 
 pub const SPIN: ImageBuild = ImageBuild {
     image: "spin",
-    manifest: "Cargo.toml",
+    manifest: "commands/Cargo.toml",
     package: "shell-command-images",
     bin: "spin",
     features: &[],
@@ -49,7 +49,7 @@ pub const SPIN: ImageBuild = ImageBuild {
 
 pub const WORKERS: ImageBuild = ImageBuild {
     image: "workers",
-    manifest: "Cargo.toml",
+    manifest: "commands/Cargo.toml",
     package: "shell-command-images",
     bin: "workers",
     features: &[],

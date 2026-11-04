@@ -8,7 +8,7 @@ fn builds_are_exactly_the_five_ordered_resource_images() {
     for (build, name) in BUILDS.iter().zip(NAMES) {
         assert_eq!(build.image, name);
         assert_eq!(build.bin, name);
-        assert_eq!(build.manifest, "Cargo.toml");
+        assert_eq!(build.manifest, "commands/Cargo.toml");
         assert_eq!(build.package, "shell-command-images");
         assert!(build.features.is_empty());
         assert_eq!(build.target, "riscv64gc-unknown-none-elf");

@@ -2,9 +2,18 @@
   "source_revision": "94e114614bec53424ac55e640fc80cf19a3e7107",
   "history": {
     "source_commit": "35b3d73e13f695c935665efa6d79b12265af98e7",
-    "filtered_commit": "d3848262c01eefbe03526959a7eecfb75380eebf",
+    "filtered_commit": "bdf4f0e7893fcd0c28fc091fe62d1cc85d8ae400",
     "mapping": {
+      "35b3d73e13f695c935665efa6d79b12265af98e7": "bdf4f0e7893fcd0c28fc091fe62d1cc85d8ae400"
+    },
+    "isolated_filtered_commit": "d3848262c01eefbe03526959a7eecfb75380eebf",
+    "isolated_mapping": {
       "35b3d73e13f695c935665efa6d79b12265af98e7": "d3848262c01eefbe03526959a7eecfb75380eebf"
+    },
+    "prepared_archive_commit": "16a6bb6740f9f3c3994b89d34eabfdb157a452c5",
+    "prepared_imported_commit": "8d8d39a44a7540dd76848ae404840aee343ea462",
+    "prepared_mapping": {
+      "16a6bb6740f9f3c3994b89d34eabfdb157a452c5": "8d8d39a44a7540dd76848ae404840aee343ea462"
     },
     "author": {
       "name": "anreonyr",
@@ -12,7 +21,7 @@
     },
     "authored_at": "2026-10-09T18:50:20Z",
     "message": "feat(shell): integrate explicit pipes, job control and login",
-    "authorship": "Author, dates and message are preserved on the filtered commit; no new attribution is claimed."
+    "authorship": "Author, dates and messages are preserved across the prefix import; no new attribution is claimed."
   },
   "files": [
     {
