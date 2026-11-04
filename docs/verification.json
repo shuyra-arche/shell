@@ -1,0 +1,151 @@
+{
+  "code_snapshot_sha256": "21d82a74f2801b67b647f5bebf5611a6318b6b6a2b891e4959849e73a7f4b171",
+  "files": {
+    "Cargo.lock": "9bea09358ae2cd6e61922622192724a98eb83f1e2dca541c3d3b4afe495d4847",
+    "Cargo.toml": "16df2dc257238f622aefc54943f76b2240eb0b06bc9c2e9a30f7393b8752aa15",
+    "api/Cargo.toml": "e270ab3b80a57a814d5153de1bc80658336b0f6c6611fef3a83a30a43184a76a",
+    "api/src/lib.rs": "79dcb5f1f52a00cec5d196698ac65e1e1dcb278f38d1e9ba23e512a07fff594b",
+    "api/tests/contracts.rs": "f1040ecaf77b36f9c918d6623666a42c321e7bed78fef0a25bc89386b4eaa647",
+    "api/tests/wire.rs": "d05a46ad02ad791377b3dab536090f29e6aa739d04c671e13e0e06a4a972fc6b",
+    "client/Cargo.toml": "5a0d7481cea7097540ec98910c139abca9e004488cdaed0127e0bf3f9520f49b",
+    "client/src/lib.rs": "51154dc20d2b9f652caef4febb1ab640ccc8923cde0024891230acde705b3614",
+    "declaration/Cargo.toml": "2907929d846255e10404965d031c1d15a0de96c968f387d75c2a17d208bd616d",
+    "declaration/src/commands.rs": "070ec4924376962ea4d2ccf882375ef0ee016a41d00f692074a88c79f3cd8e9e",
+    "declaration/src/lib.rs": "fb7773d9ccdf77ad558465746f826f4370271c0a68b52d25ee345d5976e50a66",
+    "declaration/src/program.rs": "42fcdb44820c26c2b35aadbc41307d7b501d9a85e94d8926155cb781f955c600",
+    "declaration/tests/commands.rs": "259e93d41d5c2ae2335ca609566b48f797ca10a2ed549525e290b958dcffa8a1",
+    "rust-toolchain.toml": "08d913952c9526ea12330aeed9e136af38bd9d7d9e99e4550f60bc9c8fad5ac7"
+  },
+  "unchanged_during_validation": true,
+  "commands": [
+    {
+      "name": "final-host-tests",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "--target",
+        "x86_64-unknown-linux-gnu"
+      ],
+      "exit": 0,
+      "seconds": 2.015,
+      "log_sha256": "8a4eca6b540fdd9a6b2f525a953146ab4c3d2b7ac78a9beed2378ef281728c07"
+    },
+    {
+      "name": "final-riscv-check",
+      "argv": [
+        "cargo",
+        "check",
+        "--locked",
+        "--offline",
+        "--workspace",
+        "--target",
+        "riscv64gc-unknown-none-elf"
+      ],
+      "exit": 0,
+      "seconds": 5.852,
+      "log_sha256": "34ab0f31e55b28a0fba5694ffeb8dc1445c7c6838a8758a00d4109a2cfb5efd7"
+    },
+    {
+      "name": "final-riscv-build-debug",
+      "argv": [
+        "cargo",
+        "build",
+        "--locked",
+        "--offline",
+        "--workspace",
+        "--target",
+        "riscv64gc-unknown-none-elf"
+      ],
+      "exit": 0,
+      "seconds": 9.553,
+      "log_sha256": "9c00b5ece8947379934fc147a1141a9bfbb45e8e14edd1dacbe792f514ba5d3c"
+    },
+    {
+      "name": "final-riscv-build-release",
+      "argv": [
+        "cargo",
+        "build",
+        "--locked",
+        "--offline",
+        "--workspace",
+        "--release",
+        "--target",
+        "riscv64gc-unknown-none-elf"
+      ],
+      "exit": 0,
+      "seconds": 0.186,
+      "log_sha256": "2d5694fb348541fae3d68a033b004800c9c79f8f6edb468d5763b1d8f389597a"
+    }
+  ],
+  "qemu_runs": 0,
+  "runtime_acceptance": false,
+  "distinct_host_tests": 13,
+  "host_test_names": [
+    "launch_round_trip_and_all_truncations_are_rejected",
+    "catalogue_contract_rejects_duplicate_images_ports_and_invalid_utf8",
+    "caps_marks_and_exact_max_size_payloads_are_frozen",
+    "launch_decoder_rejects_truncation_trailing_and_names",
+    "catalogue_decoder_limits_and_encoder_asymmetries",
+    "launch_encoder_accepts_endpoint_fields_the_decoder_rejects",
+    "catalogue_decoder_rejects_truncation_trailing_and_names",
+    "catalogue_golden_wire_is_stable_in_both_directions",
+    "launch_decoder_validates_endpoints_and_limits",
+    "launch_golden_wire_is_stable_in_both_directions",
+    "command_order_and_ports_are_frozen",
+    "bindings_align_with_commands_and_fetch_initrd",
+    "program_is_shell_image_with_image_construction"
+  ],
+  "riscv_library_artifacts": [
+    {
+      "profile": "debug",
+      "file": "libshell_api.rlib",
+      "sha256": "90c11f6cc7f711a875b953222b6021132c7416db2495f32f3a4ded5fb0ea9bbc",
+      "object_machine": 243,
+      "object_count": 19
+    },
+    {
+      "profile": "debug",
+      "file": "libshell_client.rlib",
+      "sha256": "61aa3392dbb8a58407b0cce9b0bfb5d3ea61d1ada2b12647c8a19238765e34c1",
+      "object_machine": 243,
+      "object_count": 28
+    },
+    {
+      "profile": "debug",
+      "file": "libshell_declaration.rlib",
+      "sha256": "c2c2d12d6fae20809f1680e1be3ff1defaa63ba799f32e6a5def5d3d70ee39b2",
+      "object_machine": 243,
+      "object_count": 1
+    },
+    {
+      "profile": "release",
+      "file": "libshell_api.rlib",
+      "sha256": "3755a9a53e984d37f6595a575e5ae09ab8ff367325b9533e069bdb7042716763",
+      "object_machine": 243,
+      "object_count": 1
+    },
+    {
+      "profile": "release",
+      "file": "libshell_client.rlib",
+      "sha256": "90ecd5c48dfc59f2be3daf23b12b704534285e94b9741ebcb114889bfee793bc",
+      "object_machine": 243,
+      "object_count": 1
+    },
+    {
+      "profile": "release",
+      "file": "libshell_declaration.rlib",
+      "sha256": "71d5990333940e7a53f81dd538235a5460c2b4d83c863a3ab2d62fb86be7c27d",
+      "object_machine": 243,
+      "object_count": 1
+    }
+  ],
+  "dependency_summary": {
+    "packages": 26,
+    "external_packages": 23,
+    "no_sqware_or_lisp": true,
+    "canonical_type_identities_unique": true,
+    "all_external_lock_entries_equal_baseline": true
+  }
+}
