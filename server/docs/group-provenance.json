@@ -1,0 +1,232 @@
+{
+  "method": "Fresh separate DeepSeek API roles through configured OpenCode Go. Executor supplied current source snapshots, applied worker metadata and ran checks. Not dsh CLI or model filesystem tools. Separate group from prior server and Lisp PRs.",
+  "roles": [
+    {
+      "role": "namer",
+      "session": "ses_31464fd11aff4bde86bafb933d93a8e3",
+      "model": "deepseek-v4.1-flash",
+      "calls": [
+        {
+          "id": "37dade053045c4b4010a63b5a21e656c",
+          "created": 1793804014,
+          "model": "deepseek-v4.1-flash",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 6695,
+            "completion_tokens": 907,
+            "total_tokens": 7602,
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cached_tokens": 0,
+              "cache_creation_input_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "cost": 0,
+            "opencode": {
+              "billing_source": "go",
+              "list_cost": 0.00154845,
+              "allowance": 0.00092907,
+              "tokens": {
+                "input": 6695,
+                "output": 907,
+                "reasoning": 0,
+                "cache_read": 0,
+                "cache_write_5m": 0,
+                "cache_write_1h": 0
+              }
+            }
+          },
+          "prompt_sha256": "7edd41a837201ca58bbd8f68fce1a89c7f0af4c6bcd66a2d162e8ab5c2704cdb"
+        },
+        {
+          "id": "04bc946f02f2391197a5a64dcf584071",
+          "created": 1793804152,
+          "model": "deepseek-v4.1-flash",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 7828,
+            "completion_tokens": 282,
+            "total_tokens": 8110,
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cached_tokens": 6656,
+              "cache_creation_input_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "cost": 0,
+            "opencode": {
+              "billing_source": "go",
+              "list_cost": 0.00036497,
+              "allowance": 0.00021898,
+              "tokens": {
+                "input": 1172,
+                "output": 282,
+                "reasoning": 0,
+                "cache_read": 6656,
+                "cache_write_5m": 0,
+                "cache_write_1h": 0
+              }
+            }
+          },
+          "prompt_sha256": "d3e79461faed24437d8553f3b8d95279691174ce08bc003b4cf0e482b5fd1c0e"
+        }
+      ]
+    },
+    {
+      "role": "worker",
+      "session": "ses_cd8929ba208149de934f7efb48e2e17a",
+      "model": "deepseek-v4.1-flash",
+      "calls": [
+        {
+          "id": "02179380414932845c07e4ff35b1f55227084b3d76e9a80eccf6c",
+          "created": 1793804166,
+          "model": "deepseek-v4.1-flash",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 33410,
+            "completion_tokens": 3760,
+            "total_tokens": 37170,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "cost": 0,
+            "opencode": {
+              "billing_source": "go",
+              "list_cost": 0.0072675,
+              "allowance": 0.0043605,
+              "tokens": {
+                "input": 33410,
+                "output": 3760,
+                "reasoning": 0,
+                "cache_read": 0,
+                "cache_write_5m": 0,
+                "cache_write_1h": 0
+              }
+            }
+          },
+          "prompt_sha256": "9726b32eaefc2a7e5f5a4011119c71e0f1d8343d86b8c3a00c41162222c4286a"
+        },
+        {
+          "id": "02179380445585251d9d16403af386b151f4b49e6685515ebe057",
+          "created": 1793804457,
+          "model": "deepseek-v4.1-flash",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 39894,
+            "completion_tokens": 233,
+            "total_tokens": 40127,
+            "prompt_tokens_details": {
+              "cached_tokens": 33408
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "cost": 0,
+            "opencode": {
+              "billing_source": "go",
+              "list_cost": 0.00121292,
+              "allowance": 0.00072775,
+              "tokens": {
+                "input": 6486,
+                "output": 233,
+                "reasoning": 0,
+                "cache_read": 33408,
+                "cache_write_5m": 0,
+                "cache_write_1h": 0
+              }
+            }
+          },
+          "prompt_sha256": "47771ca46965434b7bcbf6f76cc4cca315e1f719ba403af33b8ee9e92e054b48"
+        }
+      ]
+    },
+    {
+      "role": "reviewer",
+      "session": "ses_3416900e6aac45e7a1bb73fbe4058924",
+      "model": "deepseek-v4.1-flash",
+      "calls": [
+        {
+          "id": "chatcmpl-R2Pi6EepAA4Ke7FkyRWOZ9BX",
+          "created": 1793804799,
+          "model": "deepseek-v4.1-flash",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 88549,
+            "completion_tokens": 1138,
+            "total_tokens": 89687,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": null
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "cost": 0,
+            "opencode": {
+              "billing_source": "go",
+              "list_cost": 0.01396515,
+              "allowance": 0.00837909,
+              "tokens": {
+                "input": 88549,
+                "output": 1138,
+                "reasoning": 0,
+                "cache_read": 0,
+                "cache_write_5m": 0,
+                "cache_write_1h": 0
+              }
+            }
+          },
+          "prompt_sha256": "baa035ac23deb985e8d68a07b4d243f49180ea1d9c83431881d6e65e1ca19537"
+        },
+        {
+          "id": "chatcmpl-Rn0CGHsST1SxyEl9fuFQzaxx",
+          "created": 1793805044,
+          "model": "deepseek-v4.1-flash",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 101218,
+            "completion_tokens": 599,
+            "total_tokens": 101817,
+            "prompt_tokens_details": {
+              "cached_tokens": 89600,
+              "cache_write_tokens": null
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "cost": 0,
+            "opencode": {
+              "billing_source": "go",
+              "list_cost": 0.0023709,
+              "allowance": 0.00142254,
+              "tokens": {
+                "input": 11618,
+                "output": 599,
+                "reasoning": 0,
+                "cache_read": 89600,
+                "cache_write_5m": 0,
+                "cache_write_1h": 0
+              }
+            }
+          },
+          "prompt_sha256": "672109e55a7575de2eccef92be7d97dc0b521a2b24af794cd60f87448212518a"
+        }
+      ]
+    }
+  ]
+}

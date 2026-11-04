@@ -1,4 +1,4 @@
-#[path = "../../src/user/shell/adapt/ports.rs"]
+#[path = "../../src/adapt/ports.rs"]
 pub mod ports;
 pub mod controller {
     use crate::{core::*, native::objects::Objects};

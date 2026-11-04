@@ -35,7 +35,7 @@ pub use creating::Creating;
 pub use pipe::Pipe;
 pub use port::Port;
 
-#[path = "../../src/user/shell/core/mod.rs"]
+#[path = "../../src/core/mod.rs"]
 pub mod core;
 
 pub mod adapt;

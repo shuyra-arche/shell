@@ -1,0 +1,9 @@
+# Independent review
+
+A new genuine DeepSeek namer/worker/reviewer group, distinct from the Lisp provider group and archived server candidate groups, approved the exact source/config snapshot recorded in reviewed-snapshot.json. The group used configured OpenCode Go API sessions with executor-supplied source snapshots. The executor applied the worker metadata and ran actual checks; this is not dsh CLI execution or model filesystem access. Actual role/request/session receipts are in group-provenance.json.
+
+The review covered full original runtime, original host/adapter tests, nested workspace/package identities, unchanged provider packages, resolved lock, source/history comparisons and actual RISC-V build/archive logs. An initial concern about audit JSON versus log bytes was disproved by exact byte equality and retracted by the reviewer. Source-verification scope was clarified, with the audit rerun against a fresh anonymous public Source checkout at the exact baseline. Intentional original fixture locks were confirmed byte-identical and ignored by Cargo. Final review found no material source/config defect, lost semantics or weakened tests.
+
+The first structural audit failed because the worker header adaptation included blank lines beyond the exact two-line prefix. The worker corrected it; the affected target libraries and the same strict audit passed afterward. Original test assertions and audit criteria were not relaxed. The initial failed trace is recorded by hash in verification.json.
+
+Publication, anonymous Shell checkout and an external Git-consumer source-identity build follow upload and are a gate before Draft PR creation. They are not claimed by the pre-upload verification snapshot. No program ELF entry, Source/Vanllia intake, QEMU, SMP acceptance, merge, force push or tags are part of this library slice. Reviewed production/config files did not change after approval; only this review summary and role receipts were completed.

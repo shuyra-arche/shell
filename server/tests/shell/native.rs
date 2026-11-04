@@ -1,4 +1,4 @@
-#[path = "../../src/user/shell/native/host.rs"]
+#[path = "../../src/native/host.rs"]
 pub mod host;
-#[path = "../../src/user/shell/native/objects.rs"]
+#[path = "../../src/native/objects.rs"]
 pub mod objects;

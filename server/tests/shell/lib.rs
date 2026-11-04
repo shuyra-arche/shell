@@ -48,7 +48,7 @@ pub mod time {
 mod adapt;
 #[cfg(test)]
 mod contracts;
-#[path = "../../src/user/shell/core/mod.rs"]
+#[path = "../../src/core/mod.rs"]
 mod core;
 #[cfg(test)]
 mod host;

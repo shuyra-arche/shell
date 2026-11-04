@@ -1,3 +1,5 @@
+#![no_std]
+extern crate alloc;
 pub mod adapt;
 pub(crate) use shell_declaration::commands;
 pub mod core;
