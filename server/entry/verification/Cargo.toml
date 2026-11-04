@@ -1,0 +1,13 @@
+[package]
+name = "shell-entry-builder-proof"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[dependencies]
+shell-declaration = { path = "../../../declaration" }
+image-builder = { git = "https://github.com/shuyra-arche/image-builder.git", rev = "17f294bae58ef5526a18fd6a88a88cc41850d4a6" }
+system-api = { git = "https://github.com/shuyra-arche/system.git", rev = "9e5d63ca536a176583cf1b0054b4ecf7ddd88257" }
+serde_json = "1"

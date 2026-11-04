@@ -1,5 +1,5 @@
 [workspace]
-members = ["tests/shell", "tests/shell-adapter"]
+members = ["entry", "tests/shell", "tests/shell-adapter"]
 default-members = ["."]
 resolver = "3"
 
@@ -10,6 +10,9 @@ edition = "2024"
 [profile.dev]
 panic = "abort"
 debug = true
+
+[profile.release]
+panic = "abort"
 
 [package]
 name = "shell-server"

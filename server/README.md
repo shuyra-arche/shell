@@ -1,11 +1,12 @@
 # Shell server library
 
-This directory is an independent library workspace inside the Shell
-repository. It contains the Shell server library (`shell-server`), the Lisp
-REPL, the native host, the startup handshake, and the job/pipe adapters from
-`anreonyr/sqware` at `94e114614bec53424ac55e640fc80cf19a3e7107`. The source
-bodies are the original bodies; this slice changes only the crate header,
-module locations, and dependency paths.
+This directory is an independent workspace inside the Shell repository. It
+contains the Shell server library (`shell-server`), the Lisp REPL, the native
+host, the startup handshake, and the job/pipe adapters from `anreonyr/sqware`
+at `94e114614bec53424ac55e640fc80cf19a3e7107`. The library source bodies are
+the original bodies; this slice changes only the crate header, module
+locations, and dependency paths. It also contains the `shell-entry` binary
+package, an entry-only crate outside the library closure.
 
 `shell-server` is a `#![no_std]` library with `extern crate alloc`. It is not a
 workspace member of the root interface workspace and does not change the root
@@ -26,6 +27,41 @@ dependencies from this repository.
   `lisp` source is modified by this slice.
 - Commands, the generic image runtime, and `programs::entry` are not added
   here; this slice does not duplicate them.
+
+## Entry package
+
+`entry/` is the `shell-entry` package (version and edition inherited from this
+workspace, `publish = false`, `autobins = false`). Its only binary is
+`prog-shell` from `src/main.rs`; test, bench, and doctest are disabled. It
+depends on `shell-server` by path and on full-SHA HTTPS pins of `env`
+(`d3000253cd5d13d466e91fafd4dbb27a5ec5aaae`), `execution`
+(`1b333a28bc4c34beaea3f7986a9bb6e8ab2db414`), `mold`
+(`f52501f4c91b686eded8b4bcd743b4e96084b7f9`), and `system-support`
+(`5a792ff2d39901a970925b1a6d63206adf6c16d8`). These dependencies are isolated
+to the binary; the server library closure is unchanged.
+
+`entry/build.rs` reads the `execution` build metadata
+`DEP_EXECUTION_LINKER_SCRIPT` and emits
+`cargo::rustc-link-arg-bin=prog-shell=-T<path>`, plus rerun-if-changed entries
+for that link script and `src/main.rs`. The link script and startup therefore
+come from `execution`, not a copy.
+
+`main.rs` is the original entry source with exactly four substitutions:
+`programs` to `shell_server`, the `mold::entry` attribute, `shell_server::run()`
+in place of `programs::user::shell::run()`, and `system_support::debug::put` in
+place of `programs::debug::put`. The function return type, `env::Reason` error
+mapping, diagnostic message, and exit reason `86` are unchanged.
+
+`shell_declaration::BUILD` is the only image declaration: it names
+`server/entry/Cargo.toml`, package `shell-entry`, bin `prog-shell`, target
+`riscv64gc-unknown-none-elf`, profile `release`, no features, and default
+features on. The manifest is relative to the repository root, so the image
+builder must be given the repository root as its root argument; it sets Cargo's
+`current_dir` to that root, which loads the repository-root
+`.cargo/config.toml`. That file applies static relocation, forced frame
+pointers, and the medium code model to RISC-V targets only; it sets no default
+target or runner, and matching flags in the existing command workspaces are
+untouched.
 
 ## Original tests
 
@@ -62,9 +98,30 @@ cargo build --locked --release --target riscv64gc-unknown-none-elf
 These commands are the intended verification; results are recorded by the
 executor, not claimed here.
 
+The descriptor-driven image build is validated in this PR: the executor built
+both debug and release real RISC-V executable ELFs and invoked
+`image_builder::executables` with `shell_declaration::BUILD` against the
+repository root, and both passed. The same ELF can be built directly with the
+locked command:
+
+```sh
+cargo build --locked --manifest-path server/entry/Cargo.toml -p shell-entry \
+    --bin prog-shell --target riscv64gc-unknown-none-elf --release
+```
+
+Packaging is the image-builder pipeline's slim helper calling
+`llvm-objcopy --strip-all`; `unit::ImageBuild` has no `slim()` method. The raw
+Cargo-produced ELF is kept alongside the slim copy, and both sizes are
+reported. In the slim ELF the minimum `PT_LOAD` base is `0x10000` and `e_entry`
+equals `_start` within an executable `PT_LOAD`, not necessarily exactly
+`0x10000`.
+
 ## Deferred boundaries
 
-The actual entry ELF, Source baseline integration, Vanllia composition, SMP,
-and QEMU runtime verification remain deferred and are not claimed to have
-passed by this slice. The `lisp` crate is consumed here as a library only;
-entry-level and system image behaviour remain outside this directory.
+The entry ELF is built and descriptor-validated in this PR for both debug and
+release RISC-V targets. Source and Vanllia catalogue intake, runtime, QEMU, and
+SMP verification remain deferred. The `lisp` crate is consumed as a library
+only. The six-command resource catalogue, interactive shell, and system-image
+acceptance still require separate slices; the `BUILD` declaration is the single
+authority for the entry image, and command bindings remain authored in
+`declaration/src/commands.rs`.

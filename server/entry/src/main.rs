@@ -1,10 +1,10 @@
 #![no_std]
 #![no_main]
-extern crate programs;
-#[programs::entry]
+extern crate shell_server;
+#[mold::entry]
 fn main() -> Result<(), env::Reason> {
-    programs::user::shell::run().map_err(|message| {
-        programs::debug::put(message);
+    shell_server::run().map_err(|message| {
+        system_support::debug::put(message);
         86
     })
 }

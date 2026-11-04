@@ -18,12 +18,26 @@ Source baseline. Source still builds and runs its own copies of these crates
 and its Shell consumers, including the Lisp native host and `stdlib.lisp`,
 until a separate intake slice replaces them.
 
-`server/` is an independent nested library workspace (`shell-server`) that
-consumes the sibling `lisp` crate by path and contains the original Shell
-server library, REPL, native host, startup, and job/pipe adapters with their
-original tests. It is not a member of the root workspace and does not change
-root manifests or the `lisp`, `api`, `client`, or `declaration` crates.
-Source intake and entry-level integration remain pending.
+`server/` is an independent nested workspace (`shell-server`) that consumes
+the sibling `lisp` crate by path and contains the original Shell server
+library, REPL, native host, startup, and job/pipe adapters with their original
+tests. It also contains the `shell-entry` binary package, a separate
+`no_main` RISC-V program that reuses the `execution` link script and startup;
+the binary declares no host tests and is built only for
+`riscv64gc-unknown-none-elf`. It is not a member of the root workspace and does
+not change root manifests or the `lisp`, `api`, or `client` crates.
+
+`shell-declaration` gains `BUILD`, a `unit::ImageBuild` declaration naming the
+`server/entry` manifest, the `shell-entry` package, the `prog-shell` binary,
+the RISC-V target, and the release profile, plus an `image` host test over the
+declaration. Its `PROGRAM` unit file, six command bindings, and wire contract
+are byte-identical to before. The repository-root `.cargo/config.toml` supplies
+RISC-V-only codegen flags for the image builder's repository-root working
+directory without changing host-target builds.
+
+The actual entry ELF is built and validated in this PR for both debug and
+release RISC-V targets through the `BUILD` declaration. Source and Vanllia
+catalogue intake, runtime, QEMU, and SMP acceptance remain pending.
 
 ## Build and test
 
@@ -56,8 +70,9 @@ These language tests cover the `lisp` crate only; they do not verify a Shell
 consumer. The `lisp` directory is imported byte-identical from the Source
 baseline and is unchanged in this extraction.
 
-The nested `server/` library has its own workspace, manifest, and generated
-lock; see `server/README.md` for its target commands and deferred boundaries.
+The nested `server/` workspace has its own manifest and generated lock and is
+still not a root member; see `server/README.md` for its target commands,
+entry-image build procedure, and deferred boundaries.
 
 ## Frozen interface
 
@@ -100,15 +115,17 @@ Unexpected write outcomes, including zero-length progress, fail.
 
 The six commands can move into this same repository once their shared
 image/runtime support is independent; that migration does not require Lisp.
-`programs::entry`, allocator, panic, and startup support also need independently
-reviewed slices. `cat` additionally depends on Terminal and System identity;
-`workers` depends on Execution and atomics.
+The `server/entry` package, `shell-declaration::BUILD`, and the entry-only
+runtime dependencies are prepared and the actual ELF is verified here.
+Runtime acceptance remains pending. `cat` additionally depends on
+Terminal and System identity; `workers` depends on Execution and atomics.
 
-The `lisp` crate is present, and the nested `server/` library consumes it by
-sibling path. Entry-level integration, the actual entry ELF, the Source
-baseline, and QEMU runtime verification remain deferred pending a separate
-slice. See `docs/lisp-extraction.md` for the ownership, history, and
-verification plan.
+The `lisp` crate is present, and the nested `server/` workspace consumes it by
+sibling path. The `server/entry` package and the `BUILD` declaration exist, and
+the entry ELF has been built and validated for both debug and release RISC-V
+targets; Source and Vanllia catalogue intake, runtime, and QEMU/SMP
+verification remain deferred pending a separate slice. See
+`docs/lisp-extraction.md` for the ownership, history, and verification plan.
 
 Vanllia #3 composition remains pinned to the `sqware` `shell-declaration`. This
 change does not modify Source or Vanllia.
@@ -119,6 +136,6 @@ change does not modify Source or Vanllia.
 2. Pin host composition separately.
 3. Move the six commands into this repository after their shared image/runtime
    support is independent; this step does not require Lisp.
-4. Connect the nested `server/` library to the program entry and validate
-   Source and Vanllia intake separately.
+4. Build and validate the nested `server/entry` program image through the
+   `BUILD` declaration, then validate Source and Vanllia intake separately.
 5. Avoid duplicate public API type identities while moving.
