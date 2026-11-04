@@ -44,7 +44,7 @@
     },
     "reviewer": {
       "session": "shell-cat-reviewer-fd68603d-11e2-46db-8ab0-5971e2125657",
-      "audited_responses": 17,
+      "audited_responses": 21,
       "reported_models": [
         "deepseek-v4.1-flash"
       ],
@@ -52,12 +52,13 @@
         "go"
       ],
       "tool_calls": {
-        "read_file": 55,
-        "list_files": 1
+        "read_file": 59,
+        "list_files": 2
       },
       "http_errors": []
     }
   },
   "reviewer_final_response_recovered_from_audit": true,
-  "recovery_reason": "harness treated standard null tool_calls as iterable after final response; exact model response retained in audit and recovered without rerunning reviewer"
+  "recovery_reason": "harness treated standard null tool_calls as iterable after final response; exact model response retained in audit and recovered without rerunning reviewer",
+  "public_boundary_review": "Same fresh reviewer cleared public checkout/consumer conditions and approved docs-only fast-forward with expected-old-head lease"
 }

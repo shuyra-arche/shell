@@ -83,5 +83,8 @@ Static RISC-V debug/release `prog-cat` ELFs and all host suites pass; exact
 results, commands, logs, and graph comparisons are in
 `provenance/validation.json` and `provenance/dependency-and-elf.json`.
 The fresh independent review approved the frozen code/config snapshot; see
-`provenance/review.md`. Public checkout and publishing follow this local
-checkpoint. `runtime_acceptance` remains false and no QEMU run was performed.
+`provenance/review.md`. A public checkout repeated all 38 host tests and both
+Cat ELF builds. A separate consumer resolved the declaration from the exact
+public Git commit and exercised its coordinates; see
+`provenance/public-verification.json`. `runtime_acceptance` remains false;
+no QEMU run or merge was performed.
