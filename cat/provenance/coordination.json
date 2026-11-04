@@ -1,0 +1,140 @@
+{
+  "checked_at": "2026-11-04 15:04:09 UTC",
+  "chosen_base": "f4ab6a2dc3924959ac5096305b582cfb479569bd",
+  "new_branch": "codex/shell-cat-image",
+  "write_prefix": "cat/",
+  "branches": [
+    {
+      "name": "codex/shell-command-images",
+      "sha": "effeb09c170f0259c3d79687754b02aa41f615fe"
+    },
+    {
+      "name": "codex/shell-interfaces",
+      "sha": "b910582fc9dc0fd732f279d94f2cfca89f4c8c8f"
+    },
+    {
+      "name": "codex/shell-lisp-library",
+      "sha": "b72bbfca6455159a9bf9a0b250877b7e660e8c52"
+    },
+    {
+      "name": "main",
+      "sha": "f4ab6a2dc3924959ac5096305b582cfb479569bd"
+    }
+  ],
+  "pull_requests": [
+    {
+      "number": 3,
+      "title": "Extract Lisp as an independent crate within Shell",
+      "state": "open",
+      "draft": true,
+      "head": "codex/shell-lisp-library",
+      "sha": "b72bbfca6455159a9bf9a0b250877b7e660e8c52",
+      "base": "main",
+      "base_sha": "f4ab6a2dc3924959ac5096305b582cfb479569bd",
+      "merged_at": null
+    },
+    {
+      "number": 2,
+      "title": "Extract five Shell command resource images",
+      "state": "open",
+      "draft": true,
+      "head": "codex/shell-command-images",
+      "sha": "effeb09c170f0259c3d79687754b02aa41f615fe",
+      "base": "main",
+      "base_sha": "f4ab6a2dc3924959ac5096305b582cfb479569bd",
+      "merged_at": null
+    },
+    {
+      "number": 1,
+      "title": "Extract Shell declarations, API and client",
+      "state": "closed",
+      "draft": false,
+      "head": "codex/shell-interfaces",
+      "sha": "b910582fc9dc0fd732f279d94f2cfca89f4c8c8f",
+      "base": "main",
+      "base_sha": "26698efb0a2d3bf82e7098e0783e2a6a6bd6841a",
+      "merged_at": "2026-11-04T14:18:44Z"
+    }
+  ],
+  "dependencies": {
+    "shell_provider": "b910582fc9dc0fd732f279d94f2cfca89f4c8c8f",
+    "pr2_required": false,
+    "lisp_server_required": false
+  },
+  "lisp_server": {
+    "lisp": {
+      "pr": 3,
+      "head": "b72bbfca6455159a9bf9a0b250877b7e660e8c52",
+      "branch": "codex/shell-lisp-library"
+    },
+    "server": "No published server branch or PR observed",
+    "required_for_cat": false
+  },
+  "path_comparisons": [
+    {
+      "head": "effeb09c170f0259c3d79687754b02aa41f615fe",
+      "files": [
+        "commands/.cargo/config.toml",
+        "commands/.gitignore",
+        "commands/AGENTS.md",
+        "commands/Cargo.lock",
+        "commands/Cargo.toml",
+        "commands/PROVENANCE.md",
+        "commands/README.md",
+        "commands/VALIDATION.md",
+        "commands/build.rs",
+        "commands/declaration/Cargo.lock",
+        "commands/declaration/Cargo.toml",
+        "commands/declaration/src/lib.rs",
+        "commands/declaration/tests/builds.rs",
+        "commands/emit/src/main.rs",
+        "commands/fail/src/main.rs",
+        "commands/provenance/source-hashes.json",
+        "commands/rust-toolchain.toml",
+        "commands/spin/src/main.rs",
+        "commands/tests/test_migration.py",
+        "commands/upper/src/main.rs",
+        "commands/workers/src/main.rs"
+      ],
+      "cat_overlap": []
+    },
+    {
+      "head": "b72bbfca6455159a9bf9a0b250877b7e660e8c52",
+      "files": [
+        "Cargo.lock",
+        "Cargo.toml",
+        "README.md",
+        "docs/lisp-extraction.md",
+        "docs/lisp/audit-result.json",
+        "docs/lisp/audit.py",
+        "docs/lisp/commit-map.json",
+        "docs/lisp/group-provenance.json",
+        "docs/lisp/review.md",
+        "docs/lisp/reviewed-snapshot.json",
+        "docs/lisp/source-equality.json",
+        "docs/lisp/verification.json",
+        "lisp/Cargo.toml",
+        "lisp/README.md",
+        "lisp/src/diagnostic.rs",
+        "lisp/src/lib.rs",
+        "lisp/src/library/mod.rs",
+        "lisp/src/library/task.rs",
+        "lisp/src/runtime/engine.rs",
+        "lisp/src/runtime/env.rs",
+        "lisp/src/runtime/heap.rs",
+        "lisp/src/runtime/machine.rs",
+        "lisp/src/runtime/mod.rs",
+        "lisp/src/runtime/native.rs",
+        "lisp/src/runtime/print.rs",
+        "lisp/src/runtime/value.rs",
+        "lisp/src/source.rs",
+        "lisp/src/syntax/lexer.rs",
+        "lisp/src/syntax/lower.rs",
+        "lisp/src/syntax/mod.rs",
+        "lisp/src/syntax/reader.rs",
+        "lisp/tests/language.rs"
+      ],
+      "cat_overlap": []
+    }
+  ]
+}

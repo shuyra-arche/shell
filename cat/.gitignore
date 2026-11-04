@@ -1,0 +1,6 @@
+/target/
+**/target/
+
+# Coordinator-owned working artifacts; not part of the extracted package.
+/evidence/
+/tools/

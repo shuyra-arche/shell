@@ -1,0 +1,28 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.47
+   Compiling wire v0.1.0 (https://github.com/shuyra-arche/wire.git?rev=0ff77dc4573fa2620d2fe995a18c01949d9c7e57#0ff77dc4)
+   Compiling erra v0.2.0
+   Compiling bitflags v2.13.1
+   Compiling scopeguard v1.2.0
+   Compiling lock_api v0.4.14
+   Compiling execution v0.1.0 (https://github.com/shuyra-arche/execution.git?rev=1b333a28bc4c34beaea3f7986a9bb6e8ab2db414#1b333a28)
+   Compiling allocator-api2 v0.4.0
+   Compiling stream v0.1.0 (https://github.com/shuyra-arche/stream.git?rev=ebd1c6db4823e28591650d967d7e8c8dd1939687#ebd1c6db)
+   Compiling spinning_top v0.3.0
+   Compiling cat v0.1.0 (/workspace/cat-in-shell/cat/command)
+   Compiling talc v5.1.1
+   Compiling syn v2.0.119
+   Compiling mold v0.1.0 (https://github.com/shuyra-arche/mold.git?rev=f52501f4c91b686eded8b4bcd743b4e96084b7f9#f52501f4)
+   Compiling env v0.1.0 (https://github.com/shuyra-arche/env.git?rev=d3000253cd5d13d466e91fafd4dbb27a5ec5aaae#d3000253)
+   Compiling resource v0.1.0 (https://github.com/shuyra-arche/resource.git?rev=dbc96834f50f094b5c386e54a0a2ae5560dcd7f8#dbc96834)
+   Compiling system-api v0.1.0 (https://github.com/shuyra-arche/system.git?rev=9e5d63ca536a176583cf1b0054b4ecf7ddd88257#9e5d63ca)
+   Compiling ipc v0.1.0 (https://github.com/shuyra-arche/ipc.git?rev=29ad97dc08d9dfc4ea6578b1b77874261229b3b5#29ad97dc)
+   Compiling pipe-api v0.1.0 (https://github.com/shuyra-arche/pipe.git?rev=4fce76372beb6c5ab8567232516f156b3d1032eb#4fce7637)
+   Compiling terminal-api v0.1.0 (https://github.com/shuyra-arche/terminal.git?rev=c447c0761835339a39efdf2ddd8101ebf80db15a#c447c076)
+   Compiling shell-api v0.1.0 (https://github.com/shuyra-arche/shell.git?rev=b910582fc9dc0fd732f279d94f2cfca89f4c8c8f#b910582f)
+   Compiling system-client v0.1.0 (https://github.com/shuyra-arche/system.git?rev=5a792ff2d39901a970925b1a6d63206adf6c16d8#5a792ff2)
+   Compiling pipe-client v0.1.0 (https://github.com/shuyra-arche/pipe.git?rev=4fce76372beb6c5ab8567232516f156b3d1032eb#4fce7637)
+   Compiling terminal-client v0.1.0 (https://github.com/shuyra-arche/terminal.git?rev=c447c0761835339a39efdf2ddd8101ebf80db15a#c447c076)
+   Compiling shell-client v0.1.0 (https://github.com/shuyra-arche/shell.git?rev=b910582fc9dc0fd732f279d94f2cfca89f4c8c8f#b910582f)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 20.82s

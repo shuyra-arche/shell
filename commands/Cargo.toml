@@ -1,0 +1,59 @@
+[workspace]
+resolver = "3"
+exclude = ["declaration"]
+
+[package]
+name = "shell-command-images"
+version = "0.1.0"
+edition = "2024"
+publish = false
+autobins = false
+autotests = false
+
+[[bin]]
+name = "emit"
+path = "emit/src/main.rs"
+test = false
+bench = false
+doctest = false
+
+[[bin]]
+name = "upper"
+path = "upper/src/main.rs"
+test = false
+bench = false
+doctest = false
+
+[[bin]]
+name = "fail"
+path = "fail/src/main.rs"
+test = false
+bench = false
+doctest = false
+
+[[bin]]
+name = "spin"
+path = "spin/src/main.rs"
+test = false
+bench = false
+doctest = false
+
+[[bin]]
+name = "workers"
+path = "workers/src/main.rs"
+test = false
+bench = false
+doctest = false
+
+[dependencies]
+shell-client = { git = "https://github.com/shuyra-arche/shell.git", rev = "b910582fc9dc0fd732f279d94f2cfca89f4c8c8f" }
+pipe-client = { git = "https://github.com/shuyra-arche/pipe.git", rev = "4fce76372beb6c5ab8567232516f156b3d1032eb" }
+env = { git = "https://github.com/shuyra-arche/env.git", rev = "d3000253cd5d13d466e91fafd4dbb27a5ec5aaae" }
+execution = { git = "https://github.com/shuyra-arche/execution.git", rev = "1b333a28bc4c34beaea3f7986a9bb6e8ab2db414" }
+mold = { git = "https://github.com/shuyra-arche/mold.git", rev = "f52501f4c91b686eded8b4bcd743b4e96084b7f9" }
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"

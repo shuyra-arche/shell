@@ -1,0 +1,14 @@
+[workspace]
+resolver = "3"
+
+[package]
+name = "shell-cat-image-declaration"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+unit = { git = "https://github.com/shuyra-arche/unit.git", rev = "90396f0fda376e0693fb1b9553aa21864d241057" }
