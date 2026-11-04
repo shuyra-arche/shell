@@ -1,0 +1,19 @@
+   Compiling cat-command-tests v0.1.0 (/workspace/cat-preparation/tests)
+error[E0609]: no field `principal` on type `Principal`
+  --> ../command/src/run.rs:43:29
+   |
+43 |             binding.current.principal.authority.get(),
+   |                             ^^^^^^^^^ unknown field
+   |
+   = note: available fields are: `authority`, `slot`
+
+error[E0609]: no field `principal` on type `Principal`
+  --> ../command/src/run.rs:44:29
+   |
+44 |             binding.current.principal.slot
+   |                             ^^^^^^^^^ unknown field
+   |
+   = note: available fields are: `authority`, `slot`
+
+For more information about this error, try `rustc --explain E0609`.
+error: could not compile `cat-command-tests` (lib test) due to 2 previous errors

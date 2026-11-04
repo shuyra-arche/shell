@@ -1,0 +1,30 @@
+{
+  "package_count": 27,
+  "non_shell_external_entries_equal_baseline": 24,
+  "canonical_type_identities_unique": true,
+  "no_source_or_lisp_dependency": true,
+  "artifacts": [
+    {
+      "profile": "release",
+      "file": "target/riscv64gc-unknown-none-elf/release/prog-cat",
+      "sha256": "679e525696d90b09a2220ee6ece0a72a7701fada6a2f1f326b64e46e1b482b94",
+      "elf_type": 2,
+      "machine": 243,
+      "entry": "0x135ca",
+      "has_interpreter": false,
+      "size": 288640,
+      "has_dynamic_segment": false
+    },
+    {
+      "profile": "debug",
+      "file": "target/riscv64gc-unknown-none-elf/debug/prog-cat",
+      "sha256": "daf5ea8b210fb4aac6acb4e6aec537d06a8e78bdeefde8cd95188fd41a34988c",
+      "elf_type": 2,
+      "machine": 243,
+      "entry": "0x21c52",
+      "has_interpreter": false,
+      "size": 5914984,
+      "has_dynamic_segment": false
+    }
+  ]
+}

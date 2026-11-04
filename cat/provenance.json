@@ -1,0 +1,225 @@
+{
+  "schema": 1,
+  "state": "validated-for-draft-pr",
+  "delivery": {
+    "intent": "draft-pr",
+    "draft_pr": true,
+    "merge": false,
+    "status": "validated-for-draft-pr",
+    "pr_claimed": false
+  },
+  "source": {
+    "baseline": "/workspace/cat-baseline",
+    "repository": "https://github.com/anreonyr/sqware.git",
+    "revision": "94e114614bec53424ac55e640fc80cf19a3e7107",
+    "path": "programs/src/user/cat/main.rs",
+    "sha256": "d0e6fecf9c281245fc27412579bcdb36406dd4c43f8cdcb96018ba6fdc041aca"
+  },
+  "destination": {
+    "repository": "shuyra-arche/cat",
+    "path": "command/src/main.rs",
+    "package": "cat",
+    "library": "cat",
+    "binary": "prog-cat",
+    "image": "cat"
+  },
+  "manifests": {
+    "root": "Cargo.toml",
+    "command": "command/Cargo.toml",
+    "status": "finalized"
+  },
+  "shell_provider": {
+    "repository": "https://github.com/shuyra-arche/shell.git",
+    "pull_request": "https://github.com/shuyra-arche/shell/pull/1",
+    "revision": "b910582fc9dc0fd732f279d94f2cfca89f4c8c8f",
+    "source_equivalence": "all eight API/client/declaration source and manifest files match the frozen baseline byte-for-byte",
+    "comparison_evidence": "docs/shell-provider-verification.json",
+    "client_lib_sha256": "51154dc20d2b9f652caef4febb1ab640ccc8923cde0024891230acde705b3614",
+    "status": "verified"
+  },
+  "migration": {
+    "role": "shell-command",
+    "composition_owner": "shuyra-arche/shell",
+    "owner": "Shell",
+    "supply_binding": {
+      "source": "system/initrd",
+      "resource": "cat",
+      "slot": "shell-cat",
+      "mark": "shell-cat",
+      "permission": "FETCH"
+    },
+    "shell_command": "cat",
+    "ports": {
+      "source": "read",
+      "copy": "write"
+    }
+  },
+  "shell_pipe_mode": {
+    "selector": {
+      "argument": 0,
+      "owner_match": true,
+      "pie_mark": "shell_api::MARK",
+      "other_pie_fields": "ignored"
+    },
+    "boot": "shell_client::Boot::take",
+    "ports": {
+      "source": "read",
+      "copy": "write"
+    },
+    "copy": {
+      "uppercase": false,
+      "failure_reason": 1,
+      "fallback": false
+    }
+  },
+  "terminal_mode": {
+    "io": "Io::injected",
+    "resolver_pie": "first Resolve-mark pie",
+    "face": "Face::direct",
+    "resolve": {
+      "wire": "Wire::Resolve(unit::self_id())",
+      "wait": "AtMost(1000)"
+    },
+    "endings": ["EOF", "Interrupt", "Suspend"],
+    "ending_action": "drain once then succeed",
+    "failure_reason": 1
+  },
+  "toolchain": {
+    "source_declaration": "nightly-2026-09-04",
+    "available_validation": "nightly-2026-10-09"
+  },
+  "dependencies": {
+    "mold": "f52501f4c91b686eded8b4bcd743b4e96084b7f9",
+    "env": "d3000253cd5d13d466e91fafd4dbb27a5ec5aaae",
+    "resource": "dbc96834f50f094b5c386e54a0a2ae5560dcd7f8",
+    "execution": "1b333a28bc4c34beaea3f7986a9bb6e8ab2db414",
+    "pipe-client": "4fce76372beb6c5ab8567232516f156b3d1032eb",
+    "system-api": "9e5d63ca536a176583cf1b0054b4ecf7ddd88257",
+    "system-client": "5a792ff2d39901a970925b1a6d63206adf6c16d8",
+    "terminal-client": "c447c0761835339a39efdf2ddd8101ebf80db15a",
+    "shell-api": "b910582fc9dc0fd732f279d94f2cfca89f4c8c8f",
+    "shell-client": "b910582fc9dc0fd732f279d94f2cfca89f4c8c8f"
+  },
+  "new_unit": null,
+  "declaration_crate": null,
+  "out_of_scope": {
+    "runtime_validation": false,
+    "integration_image_build": false,
+    "qemu": false
+  },
+  "validation": {
+    "host_tests": {
+      "status": "passed",
+      "command": "cargo test --locked --offline --manifest-path tests/Cargo.toml --target x86_64-unknown-linux-gnu",
+      "target": "x86_64-unknown-linux-gnu",
+      "locked": true,
+      "offline": true,
+      "exit_code": 0,
+      "passed": 23,
+      "failed": 0,
+      "ignored": 0,
+      "log": "docs/logs/final-host.log",
+      "history": [
+        {
+          "run": 1,
+          "status": "compile-failed",
+          "cause": "projection path outside repository"
+        },
+        {
+          "run": 2,
+          "status": "compile-failed",
+          "cause": "test Binding.current flattened Principal"
+        }
+      ]
+    },
+    "native_builds": {
+      "status": "passed",
+      "commands": [
+        {
+          "profile": "release",
+          "argv": [
+            "cargo",
+            "build",
+            "--locked",
+            "--offline",
+            "--release",
+            "--package",
+            "cat",
+            "--bin",
+            "prog-cat"
+          ],
+          "exit_code": 0,
+          "seconds": 20.445,
+          "log": "docs/logs/native-release.log"
+        },
+        {
+          "profile": "debug",
+          "argv": [
+            "cargo",
+            "build",
+            "--locked",
+            "--offline",
+            "--package",
+            "cat",
+            "--bin",
+            "prog-cat"
+          ],
+          "exit_code": 0,
+          "seconds": 13.499,
+          "log": "docs/logs/native-debug.log"
+        }
+      ],
+      "dependency_graph": {
+        "packages": 27,
+        "non_shell_external_entries_equal_baseline": 24,
+        "canonical_type_identities_unique": true,
+        "no_source_or_lisp_dependency": true
+      },
+      "artifacts": [
+        {
+          "profile": "release",
+          "file": "target/riscv64gc-unknown-none-elf/release/prog-cat",
+          "sha256": "679e525696d90b09a2220ee6ece0a72a7701fada6a2f1f326b64e46e1b482b94",
+          "elf_type": 2,
+          "machine": 243,
+          "entry": "0x135ca",
+          "has_interpreter": false,
+          "has_start": true,
+          "has_clean_ret": true
+        },
+        {
+          "profile": "debug",
+          "file": "target/riscv64gc-unknown-none-elf/debug/prog-cat",
+          "sha256": "daf5ea8b210fb4aac6acb4e6aec537d06a8e78bdeefde8cd95188fd41a34988c",
+          "elf_type": 2,
+          "machine": 243,
+          "entry": "0x21c52",
+          "has_interpreter": false,
+          "has_start": true,
+          "has_clean_ret": true
+        }
+      ],
+      "evidence": [
+        "docs/validation.json",
+        "docs/dependency-and-elf.json"
+      ],
+      "docs_references": [
+        "docs/validation.json",
+        "docs/dependency-and-elf.json",
+        "docs/shell-provider-verification.json",
+        "docs/logs/native-release.log",
+        "docs/logs/native-debug.log",
+        "docs/logs/final-host.log"
+      ]
+    }
+  },
+  "finalization_gates": [
+    "completed: immutable Shell revision b910582fc9dc0fd732f279d94f2cfca89f4c8c8f with eight-file source equivalence",
+    "completed: final root and command manifests",
+    "completed: native dependency graph and lockfile, 27 packages with 24 non-Shell entries matching baseline",
+    "completed: locked/offline RISC-V release and debug static ELF builds",
+    "completed: source behavior review and 23-pass/0-fail host tests",
+    "delivery: validated-for-draft-pr, draft_pr true, merge false; no PR existence claimed yet",
+    "out of scope: Integration/Vanllia IMAGE BUILD mapping, runtime validation, and QEMU"
+  ]
+}

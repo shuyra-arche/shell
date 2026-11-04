@@ -1,0 +1,58 @@
+{
+  "commands": [
+    {
+      "name": "native-release",
+      "argv": [
+        "cargo",
+        "build",
+        "--locked",
+        "--offline",
+        "--release",
+        "--package",
+        "cat",
+        "--bin",
+        "prog-cat"
+      ],
+      "exit_code": 0,
+      "seconds": 20.445,
+      "log": "docs/logs/native-release.log",
+      "log_sha256": "672532b54c3bef7797616ad76b70bd270f9b708cd9c6a589d47365a8d99aee2f"
+    },
+    {
+      "name": "native-debug",
+      "argv": [
+        "cargo",
+        "build",
+        "--locked",
+        "--offline",
+        "--package",
+        "cat",
+        "--bin",
+        "prog-cat"
+      ],
+      "exit_code": 0,
+      "seconds": 13.499,
+      "log": "docs/logs/native-debug.log",
+      "log_sha256": "8642fcca0a008303b87f9d9cf7b523ae67889a7cd104133497d6749928c02110"
+    },
+    {
+      "name": "final-host",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "--manifest-path",
+        "tests/Cargo.toml",
+        "--target",
+        "x86_64-unknown-linux-gnu"
+      ],
+      "exit_code": 0,
+      "seconds": 0.04,
+      "log": "docs/logs/final-host.log",
+      "log_sha256": "9f1a94c2bfeb60ba15137250ab5169e76f17aead291309d56f8411c8f153e0a3"
+    }
+  ],
+  "qemu_runs": 0,
+  "runtime_acceptance": false
+}

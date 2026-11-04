@@ -1,0 +1,45 @@
+{
+  "revision": "b910582fc9dc0fd732f279d94f2cfca89f4c8c8f",
+  "comparison": [
+    {
+      "path": "api/Cargo.toml",
+      "equal": true,
+      "sha256": "e270ab3b80a57a814d5153de1bc80658336b0f6c6611fef3a83a30a43184a76a"
+    },
+    {
+      "path": "api/src/lib.rs",
+      "equal": true,
+      "sha256": "79dcb5f1f52a00cec5d196698ac65e1e1dcb278f38d1e9ba23e512a07fff594b"
+    },
+    {
+      "path": "client/Cargo.toml",
+      "equal": true,
+      "sha256": "5a0d7481cea7097540ec98910c139abca9e004488cdaed0127e0bf3f9520f49b"
+    },
+    {
+      "path": "client/src/lib.rs",
+      "equal": true,
+      "sha256": "51154dc20d2b9f652caef4febb1ab640ccc8923cde0024891230acde705b3614"
+    },
+    {
+      "path": "declaration/Cargo.toml",
+      "equal": true,
+      "sha256": "2907929d846255e10404965d031c1d15a0de96c968f387d75c2a17d208bd616d"
+    },
+    {
+      "path": "declaration/src/lib.rs",
+      "equal": true,
+      "sha256": "fb7773d9ccdf77ad558465746f826f4370271c0a68b52d25ee345d5976e50a66"
+    },
+    {
+      "path": "declaration/src/program.rs",
+      "equal": true,
+      "sha256": "42fcdb44820c26c2b35aadbc41307d7b501d9a85e94d8926155cb781f955c600"
+    },
+    {
+      "path": "declaration/src/commands.rs",
+      "equal": true,
+      "sha256": "070ec4924376962ea4d2ccf882375ef0ee016a41d00f692074a88c79f3cd8e9e"
+    }
+  ]
+}

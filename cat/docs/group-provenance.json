@@ -1,0 +1,60 @@
+{
+  "provider": "opencode-go",
+  "request_model": "deepseek-v4.1-flash",
+  "transport": "scoped direct API harness; not dsh",
+  "sessions": {
+    "namer": {
+      "session": "cat-namer-9c4108ac-1381-437e-83cc-7e0b9da1b221",
+      "audited_responses": 23,
+      "reported_models": [
+        "deepseek-v4.1-flash"
+      ],
+      "reported_billing_sources": [
+        "go"
+      ],
+      "tool_calls": {
+        "list_files": 5,
+        "read_file": 55
+      },
+      "recorded_http_errors": []
+    },
+    "worker": {
+      "session": "cat-worker-3f552dbd-50b3-4efd-9fe9-657264e1c1d9",
+      "audited_responses": 84,
+      "reported_models": [
+        "deepseek-v4.1-flash"
+      ],
+      "reported_billing_sources": [
+        "go"
+      ],
+      "tool_calls": {
+        "read_file": 78,
+        "list_files": 6,
+        "apply_patch": 46
+      },
+      "recorded_http_errors": []
+    },
+    "reviewer": {
+      "session": "cat-reviewer-f3694293-6dad-4a6c-a502-845cd4bdab03",
+      "audited_responses": 34,
+      "reported_models": [
+        "deepseek-v4.1-flash"
+      ],
+      "reported_billing_sources": [
+        "go"
+      ],
+      "tool_calls": {
+        "read_file": 63,
+        "list_files": 4
+      },
+      "recorded_http_errors": [
+        {
+          "session": "cat-reviewer-f3694293-6dad-4a6c-a502-845cd4bdab03",
+          "endpoint": "https://opencode.ai/inference/go/openai/v1/chat/completions",
+          "http_error": 401,
+          "body": "{\"error\":{\"type\":\"server_error\",\"message\":\"Upstream request failed: Invalid credential\"}}"
+        }
+      ]
+    }
+  }
+}
