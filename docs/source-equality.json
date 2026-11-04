@@ -1,0 +1,67 @@
+{
+  "baseline": "94e114614bec53424ac55e640fc80cf19a3e7107",
+  "files": [
+    {
+      "source": "programs/src/user/shell/api/src/lib.rs",
+      "destination": "api/src/lib.rs",
+      "sha256": "79dcb5f1f52a00cec5d196698ac65e1e1dcb278f38d1e9ba23e512a07fff594b",
+      "byte_equal": true
+    },
+    {
+      "source": "programs/src/user/shell/api/Cargo.toml",
+      "destination": "api/Cargo.toml",
+      "sha256": "e270ab3b80a57a814d5153de1bc80658336b0f6c6611fef3a83a30a43184a76a",
+      "byte_equal": true
+    },
+    {
+      "source": "programs/src/user/shell/client/src/lib.rs",
+      "destination": "client/src/lib.rs",
+      "sha256": "51154dc20d2b9f652caef4febb1ab640ccc8923cde0024891230acde705b3614",
+      "byte_equal": true
+    },
+    {
+      "source": "programs/src/user/shell/client/Cargo.toml",
+      "destination": "client/Cargo.toml",
+      "sha256": "5a0d7481cea7097540ec98910c139abca9e004488cdaed0127e0bf3f9520f49b",
+      "byte_equal": true
+    },
+    {
+      "source": "programs/src/user/shell/declaration/src/lib.rs",
+      "destination": "declaration/src/lib.rs",
+      "sha256": "fb7773d9ccdf77ad558465746f826f4370271c0a68b52d25ee345d5976e50a66",
+      "byte_equal": true
+    },
+    {
+      "source": "programs/src/user/shell/declaration/src/commands.rs",
+      "destination": "declaration/src/commands.rs",
+      "sha256": "070ec4924376962ea4d2ccf882375ef0ee016a41d00f692074a88c79f3cd8e9e",
+      "byte_equal": true
+    },
+    {
+      "source": "programs/src/user/shell/declaration/src/program.rs",
+      "destination": "declaration/src/program.rs",
+      "sha256": "42fcdb44820c26c2b35aadbc41307d7b501d9a85e94d8926155cb781f955c600",
+      "byte_equal": true
+    },
+    {
+      "source": "programs/src/user/shell/declaration/Cargo.toml",
+      "destination": "declaration/Cargo.toml",
+      "sha256": "2907929d846255e10404965d031c1d15a0de96c968f387d75c2a17d208bd616d",
+      "byte_equal": true
+    },
+    {
+      "source": "AGENTS.md",
+      "destination": "AGENTS.md",
+      "sha256": "b5ab92c47ad574e500d2f67757e4b27f9dfe9c1fd9f4a403e8f35e0d6a6ed548",
+      "byte_equal": true
+    },
+    {
+      "source": "programs/tests/shell/contracts.rs",
+      "destination": "api/tests/contracts.rs",
+      "only_change": "use env as abi;",
+      "all_original_assertions_preserved": true
+    }
+  ],
+  "filtered_commit_count": 10,
+  "historical_authors_dates_messages_preserved": true
+}
