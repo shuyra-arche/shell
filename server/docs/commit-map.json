@@ -1,0 +1,139 @@
+{
+  "source_baseline": "94e114614bec53424ac55e640fc80cf19a3e7107",
+  "provider_base": "b72bbfca6455159a9bf9a0b250877b7e660e8c52",
+  "method": "Path-filtered runtime/tests under server/, original metadata and surviving ancestry grafted onto public Lisp provider. No merge performed.",
+  "commits": [
+    {
+      "source": "2c17c3877e3f8c67d9db5634d693fa4303d47f8c",
+      "filtered": "370025c34d85d71d5dd4d49f10a1b39d9118df0e",
+      "candidate": "d6eb42e610ce8cb08756c6057c64d3f455e59844",
+      "metadata_equal": true
+    },
+    {
+      "source": "35b3d73e13f695c935665efa6d79b12265af98e7",
+      "filtered": "f1412e4447c6a8784e00ad033f202980e738a0dd",
+      "candidate": "dda2821c306330c590e5262272297cca8f73c81a",
+      "metadata_equal": true
+    },
+    {
+      "source": "4f11e4436f4b85f267cc83b8224e3c13f789e0ac",
+      "filtered": "77fafd8ae89c03e71d8429af3de46dbef81990b1",
+      "candidate": "8aa3c3f61dc3310e2a37731fc07dc03185ddc4f1",
+      "metadata_equal": true
+    },
+    {
+      "source": "50ad14b1123d47900de42ff2bc2d812ec6fbcc36",
+      "filtered": "0a6a069fe0bc23216cd996be4883553ecb92be4b",
+      "candidate": "90f21e2f30ecc8282262afafa4ad11b7f456f358",
+      "metadata_equal": true
+    },
+    {
+      "source": "6660f3d43a9d78b521542092da9ed891e36b38da",
+      "filtered": "4464c135b7040ec5b5af56c8ded4b1638405146a",
+      "candidate": "460537aebfaa18b758fef4549f75a0d3704c136c",
+      "metadata_equal": true
+    },
+    {
+      "source": "70d9de686e3732837b6aba9df8441596f36b38c5",
+      "filtered": "0cad15d2245fc5dadfb0411ea5933cbf380c9808",
+      "candidate": "3c95796a810b88b7e8a2851d0de96e4d83dabb74",
+      "metadata_equal": true
+    },
+    {
+      "source": "70dc1b204b0c0192f1634e21fed8da70f9869b1c",
+      "filtered": "63308142259cc4e2b118520898cbd6b6bcf441e0",
+      "candidate": "842e30cc80ad7bb56a367683d90421b79c94a937",
+      "metadata_equal": true
+    },
+    {
+      "source": "7274c61b3b87a73e845ac5400c9b3af81e510891",
+      "filtered": "83ee624ff5838e1984cdd56a0fcdb655c7e45a8d",
+      "candidate": "e6d718b2c957911f780bef5d5de2f95abde4015a",
+      "metadata_equal": true
+    },
+    {
+      "source": "735260c75f13178ba482a105c909c6dfcdf918ca",
+      "filtered": "4562ca2a3a3c0a4f88764b2a5019f8e68d630581",
+      "candidate": "8cdd07b8fa1df35afac6890bb5ceaf14a22e9ebd",
+      "metadata_equal": true
+    },
+    {
+      "source": "74cf41dc49b4ae74f7a5da91ce6562ba6007e4f1",
+      "filtered": "6c00ff3154b8d3f72cdfa2a39954b81662dd942b",
+      "candidate": "0891bd7772fb8553d08987c336ca01e5c209c2de",
+      "metadata_equal": true
+    },
+    {
+      "source": "835b2aad3fb3ac58ebf999f887e1cc5c315f166b",
+      "filtered": "515492d730347872264192bcaceb5996b24ac8e5",
+      "candidate": "630cd4f1cd9608a8c8408082dfbd7391da06c162",
+      "metadata_equal": true
+    },
+    {
+      "source": "9729a4de15c1a0c842c7cec6a5b3c5075725dc92",
+      "filtered": "22ebb988b39906239e4657327845fc40215a2899",
+      "candidate": "a29bf0c9fcc29660faf843f55fb4028b8ef7e8a2",
+      "metadata_equal": true
+    },
+    {
+      "source": "a6c6824ef91ac487919d87374a71b62174d465bd",
+      "filtered": "01953e51180914a0ffa5f20b08c59b4be66f9f25",
+      "candidate": "c4b3324939a82f02a0e4a62c17673a9426bb859b",
+      "metadata_equal": true
+    },
+    {
+      "source": "b61f9946537958766e56377e664cdeac3263fbc1",
+      "filtered": "a90eb053cae468cd2874598b1cf34c52064eecf2",
+      "candidate": "ff8b16b27124ee78219f2282ed42bf7bfceb375d",
+      "metadata_equal": true
+    },
+    {
+      "source": "c96f4a4b5a6795fab899c95bf11c350c20ba2572",
+      "filtered": "2767870554153e32575f4eaea782352a37df9d82",
+      "candidate": "5ed1f7096b296346d5d5838612891a1c705462fd",
+      "metadata_equal": true
+    },
+    {
+      "source": "d6f83aeb96eb65bcf62f87224b1dd7153f5da4ff",
+      "filtered": "dcdedf97d227c73a94f14db8c40fa2d61b4a7c4d",
+      "candidate": "1668b8e8f7461664582345f9e6ddeaec6dccd183",
+      "metadata_equal": true
+    },
+    {
+      "source": "e6302af2156a6fe3766d3ccc22f080a481948bf3",
+      "filtered": "34cf93fa762ec3b804670a10cbda3df0427060d6",
+      "candidate": "04632fb2b343c636f0f32d6c118538a9815de5b4",
+      "metadata_equal": true
+    },
+    {
+      "source": "f0672d9287a6ec1999e053aeebad3eb6ce2174b7",
+      "filtered": "dd79d037fdcb740895493323e4b4ed412cf1f186",
+      "candidate": "65ca5d020815ada0b7143cd520a1d6b1110c552b",
+      "metadata_equal": true
+    },
+    {
+      "source": "f16e11a235e6b06f3919a20fcf434c7e3ee21790",
+      "filtered": "9c48c1e73abb4adbe83bd526889959da0db566eb",
+      "candidate": "06ceabd416c8e54d14beea95f60c6276a95509e8",
+      "metadata_equal": true
+    },
+    {
+      "source": "f669396e3b5ef5994cfe85240bd40efd2b1be338",
+      "filtered": "d94ec5b9c405116f275b7bb44e45bb929728132d",
+      "candidate": "5aac7891f721fa834b2db68377824de4878f3411",
+      "metadata_equal": true
+    },
+    {
+      "source": "fb4be8eb5cf607fccef3aa4d696f1a24701edb34",
+      "filtered": "edbbe2944dde7a494150a71d2951803f10e16b12",
+      "candidate": "d80fc75d010e4affb66cf39182fc740d0641a4b7",
+      "metadata_equal": true
+    },
+    {
+      "source": "fdc8c3c26d70c6a7f66ae9fce772e7cce81c0de4",
+      "filtered": "230c8a251706a346265dd61813af8865ed17cbae",
+      "candidate": "1a7bbe25446bab94644011af2848d9c00ff315e2",
+      "metadata_equal": true
+    }
+  ]
+}

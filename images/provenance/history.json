@@ -1,0 +1,17 @@
+{
+  "base": "f4ab6a2dc3924959ac5096305b582cfb479569bd",
+  "history_checkpoint": "d84eaa8b995af065cc978872b22520ae4f8dc1d9",
+  "tree": "2bc4ab1c0b06b2c659ebaa029ef5427eccf3ea38",
+  "parents": [
+    "1165fa40a2ed3f32cbd6bc1966bb70041cdcc600",
+    "effeb09c170f0259c3d79687754b02aa41f615fe",
+    "df651c37d99f15e26cf7d76a24f0a63a4b58df58"
+  ],
+  "method": "Exact union of disjoint reviewed subtrees; three original heads retained as parents; no existing PR/branch merge or change",
+  "protected_heads": {
+    "main": "f4ab6a2dc3924959ac5096305b582cfb479569bd",
+    "codex/shell-entry-image": "1165fa40a2ed3f32cbd6bc1966bb70041cdcc600",
+    "codex/shell-command-images": "effeb09c170f0259c3d79687754b02aa41f615fe",
+    "codex/shell-cat-image": "df651c37d99f15e26cf7d76a24f0a63a4b58df58"
+  }
+}

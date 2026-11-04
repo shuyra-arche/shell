@@ -1,0 +1,57 @@
+use env::{TaskId, Wait, unit};
+use system_api::identity::Grant;
+use system_api::identity::Reply;
+use system_api::identity::Wire;
+use system_client::identity::Face;
+use terminal_client::{Io, Read};
+
+pub fn run() -> Result<(), env::Reason> {
+    if let Some(&owner) = execution::boot::args::args().first() {
+        if resource::raw::pies()
+            .any(|info| info.owner == TaskId::new(owner) && info.mark == shell_api::MARK)
+        {
+            let mut boot = shell_client::Boot::take().map_err(|_| 1usize)?;
+            let source = boot
+                .port("source", pipe_client::Direction::Read)
+                .map_err(|_| 1usize)?;
+            let copy = boot
+                .port("copy", pipe_client::Direction::Write)
+                .map_err(|_| 1usize)?;
+            return shell_client::copy(source, copy, false).map_err(|_| 1usize);
+        }
+    }
+    terminal().map_err(|_| 1)
+}
+
+fn terminal() -> Result<(), ()> {
+    let owner = TaskId::new(*execution::boot::args::args().first().ok_or(())?);
+    let io = Io::injected(owner)?;
+    let entry = ::resource::raw::pies()
+        .find(|pie| pie.mark == Grant::Resolve.mark())
+        .ok_or(())?;
+    let resolver = Face::direct(entry.owner, Grant::Resolve, entry.token).map_err(|_| ())?;
+    let Reply::Binding(Some(binding)) = resolver
+        .call(Wire::Resolve(unit::self_id()), Wait::AtMost(1000))
+        .map_err(|_| ())?
+    else {
+        return Err(());
+    };
+    io.write(
+        alloc::format!(
+            "cat: task={} principal={}:{}\n",
+            unit::self_id().get(),
+            binding.current.principal.authority.get(),
+            binding.current.principal.slot
+        )
+        .as_bytes(),
+    )?;
+    loop {
+        match io.read()? {
+            Read::Data(data) => io.write(data.bytes())?,
+            Read::Eof | Read::Interrupt | Read::Suspend => {
+                io.drain()?;
+                return Ok(());
+            }
+        }
+    }
+}

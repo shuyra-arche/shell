@@ -1,0 +1,93 @@
+{
+  "group": "shell-entry-image-20261104",
+  "mechanism": "Genuine DeepSeek API roles through OpenCode Go; supplied snapshots, executor runs commands; not interactive dsh CLI",
+  "base": "7a2f99e268784693975b5e244b28795be50c218c",
+  "roles": {
+    "namer": {
+      "session": "ses_a30b6aea9ab3490eb958d83452d2f000",
+      "model": "deepseek-v4.1-flash",
+      "calls": [
+        {
+          "id": "021793806384651978acb49f7cce3ba6727b8cdf360fb7e919fef",
+          "model": "deepseek-v4.1-flash",
+          "prompt_sha256": "f4d6c0278e07b52dc74639ad176480f319eb35a61ad219d75c0427040e79084f",
+          "finish_reason": "stop"
+        },
+        {
+          "id": "021793806573616a262ecc6d4c5ad12813924c87f6f247f13fbd8",
+          "model": "deepseek-v4.1-flash",
+          "prompt_sha256": "8fe29c0f350dd2bcdfe25110eca5e6fd7f325181383a1a3fc452315a90d237b3",
+          "finish_reason": "stop"
+        },
+        {
+          "id": "0217938067414984e5823ec317b6ea9d3f5e181cf6332a538eb48",
+          "model": "deepseek-v4.1-flash",
+          "prompt_sha256": "5139936e629b7241c02c79327fad7feb6922e0821f10b4e2c6e4b32d60ed2e8e",
+          "finish_reason": "stop"
+        }
+      ]
+    },
+    "worker": {
+      "session": "ses_1139d6b5065f42d3b637b9704d0e34c3",
+      "model": "deepseek-v4.1-flash",
+      "calls": [
+        {
+          "id": "chatcmpl-RyaWpjzCSpPCrVzpa2BDI9il",
+          "model": "deepseek-v4.1-flash",
+          "prompt_sha256": "6c5c8dd3d08221e046669e54cc35418920ae0dc226ab586b496a01f4a1d213bd",
+          "finish_reason": "stop"
+        },
+        {
+          "id": "chatcmpl-RFvA5PHwXSTVKXsyqjRIpShI",
+          "model": "deepseek-v4.1-flash",
+          "prompt_sha256": "0c291533890f09177a3e64636487eec1b5ad5b92b6f9726af03a57b517bed87e",
+          "finish_reason": "stop"
+        },
+        {
+          "id": "chatcmpl-R6UbBBxkNWtKH4Gz3KJaqCsT",
+          "model": "deepseek-v4.1-flash",
+          "prompt_sha256": "14a2454efef10cd949f9e3e7ddc6aa9b8c0680616161ead987de16c12e744833",
+          "finish_reason": "stop"
+        }
+      ]
+    },
+    "reviewer": {
+      "session": "ses_d58c0324ecfd47ba88801baff97a15cf",
+      "model": "deepseek-v4.1-flash",
+      "calls": [
+        {
+          "id": "021793808469985a139bd89baa39633285680c9471d15ef8377f7",
+          "model": "deepseek-v4.1-flash",
+          "prompt_sha256": "2fdea2699467f92ce6734fdc95246f3ade9633c6f62facb8b312d56cbee07d5d",
+          "finish_reason": "stop"
+        },
+        {
+          "id": "021793808557782fea0cb63916d8b7cee037e8f30dc274667a21a",
+          "model": "deepseek-v4.1-flash",
+          "prompt_sha256": "74d43e927d1c75378ce790239013e96991466f43ccc31f9de472e47117058e50",
+          "finish_reason": "stop"
+        }
+      ]
+    }
+  },
+  "review_verdict": "APPROVE",
+  "review_limitations": "Source metadata, lock projections and artifacts supplied by executor; no runtime execution. Public checkout repeat happens after immutable object publication.",
+  "review_fixes": "Added explicit source anchors, closure counts, readable-load check and transitive Hub pin documentation; original entry/BUILD and original runtime/tests unchanged. Reviewer retracted initial test arithmetic confusion.",
+  "sha256": {
+    ".cargo/config.toml": "7f96bda29483ffeafaa6dbb21659a86655723b4165085bdf583628fc12a84ce0",
+    "declaration/src/lib.rs": "2d5ac94872923976baa5690ef5144cc33cd6a39d3952e92e7f0ffc297cf01ba3",
+    "declaration/src/build.rs": "a9fe675c0fb1a973b4cac5650913a5b5943adfee9649d10a08707bb49dc58b1f",
+    "declaration/src/program.rs": "42fcdb44820c26c2b35aadbc41307d7b501d9a85e94d8926155cb781f955c600",
+    "declaration/src/commands.rs": "070ec4924376962ea4d2ccf882375ef0ee016a41d00f692074a88c79f3cd8e9e",
+    "declaration/tests/image.rs": "b7bcbdd96225370f26fc4f817a1858c73fa526a228f6ea04849db22bcf6e41a9",
+    "server/Cargo.toml": "924c1cfd8aae3fc6cd1642a5e193370b7a8d8eb9226523222f03ac585b5f0a49",
+    "server/Cargo.lock": "b6cdbe735c37f9a1c69dfcd1e843110318721752e727124c44ac34ad20c9f594",
+    "server/entry/Cargo.toml": "bcd50805242a6f1ba733d881c84646a2d7de2895dc8749f8d145c6eff5f06ac9",
+    "server/entry/build.rs": "c2f0d6ae0f348ee6e65698be97b681783dd8fefd0cda67225473e7360de63d97",
+    "server/entry/src/main.rs": "2c303ff7c2ea0d44a423e0a14bf65e25c1016baa74482e9141b76d87dca02494",
+    "server/entry/audit.py": "1f99ab35af451ca919a926dd1f056e011d180f7ad9ee30064c51f0f9d5735df6",
+    "server/entry/verification/Cargo.toml": "9a532c301b99fae25e3b8ddfb40040863cf68a055af96a80ccd1301fc6b650c2",
+    "server/entry/verification/Cargo.lock": "473b22dd65fcdd2f7620e42076ff2452e9d0e2f592aff4ec680dfcd607a13e7f",
+    "server/entry/verification/src/main.rs": "7da8aa4b30fe00bbbd02cd987d0b950beddbe3db64c28546255d59ff8a4c461c"
+  }
+}

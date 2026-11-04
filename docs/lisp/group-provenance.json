@@ -1,0 +1,215 @@
+{
+  "method": "Fresh distinct namer/worker/reviewer API sessions through configured OpenCode Go; source snapshots supplied by executor, worker metadata applied by executor. Not dsh CLI or model filesystem tools. Separate group from prior standalone Lisp/Shell candidates.",
+  "roles": [
+    {
+      "role": "namer",
+      "session": "ses_71a4c6dd60874326ad4adf3c14b4ad98",
+      "model": "deepseek-v4.1-flash",
+      "calls": [
+        {
+          "id": "chatcmpl-a267f0afaa81418dbf0825539b1f3465",
+          "created": 1793802829,
+          "model": "deepseek-v4.1-flash",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 2739,
+            "completion_tokens": 910,
+            "total_tokens": 3649,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "cost": 0,
+            "opencode": {
+              "billing_source": "go",
+              "list_cost": 0.00095685,
+              "allowance": 0.00057411,
+              "tokens": {
+                "input": 2739,
+                "output": 910,
+                "reasoning": 0,
+                "cache_read": 0,
+                "cache_write_5m": 0,
+                "cache_write_1h": 0
+              }
+            }
+          },
+          "prompt_sha256": "3d7169823cc531ea64cf1f143b29a91b9c367b7046b4c9d4d15204a2b05aaee5"
+        }
+      ]
+    },
+    {
+      "role": "worker",
+      "session": "ses_e742d49947dc40d68f3df3b310b0701b",
+      "model": "deepseek-v4.1-flash",
+      "calls": [
+        {
+          "id": "chatcmpl-74859438d48549529b9f27aba0beda15",
+          "created": 1793802932,
+          "model": "deepseek-v4.1-flash",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 3618,
+            "completion_tokens": 2906,
+            "total_tokens": 6524,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "cost": 0,
+            "opencode": {
+              "billing_source": "go",
+              "list_cost": 0.0022863,
+              "allowance": 0.00137178,
+              "tokens": {
+                "input": 3618,
+                "output": 2906,
+                "reasoning": 0,
+                "cache_read": 0,
+                "cache_write_5m": 0,
+                "cache_write_1h": 0
+              }
+            }
+          },
+          "prompt_sha256": "309b78b65c1c7a899801679f0953f7f3e0a3b7798ca43556eb5f570c2b4ec9bf"
+        },
+        {
+          "id": "chatcmpl-8341fda4215b4fc7b8b5eba1dd6c87b3",
+          "created": 1793803053,
+          "model": "deepseek-v4.1-flash",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 6878,
+            "completion_tokens": 2300,
+            "total_tokens": 9178,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "cost": 0,
+            "opencode": {
+              "billing_source": "go",
+              "list_cost": 0.0024117,
+              "allowance": 0.00144702,
+              "tokens": {
+                "input": 6878,
+                "output": 2300,
+                "reasoning": 0,
+                "cache_read": 0,
+                "cache_write_5m": 0,
+                "cache_write_1h": 0
+              }
+            }
+          },
+          "prompt_sha256": "2dd1233b76a036bed458328fc6c68d0f99717b2d25105ce995df9141e99cb5ec"
+        },
+        {
+          "id": "chatcmpl-e510991431854a86807e98a9d79e09f1",
+          "created": 1793803132,
+          "model": "deepseek-v4.1-flash",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 10636,
+            "completion_tokens": 3041,
+            "total_tokens": 13677,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "cost": 0,
+            "opencode": {
+              "billing_source": "go",
+              "list_cost": 0.00342,
+              "allowance": 0.002052,
+              "tokens": {
+                "input": 10636,
+                "output": 3041,
+                "reasoning": 0,
+                "cache_read": 0,
+                "cache_write_5m": 0,
+                "cache_write_1h": 0
+              }
+            }
+          },
+          "prompt_sha256": "6dc68a1c71ab4b9d40d745d8ad52dd29d664c11ef9591bec4bb342414b62648c"
+        }
+      ]
+    },
+    {
+      "role": "reviewer",
+      "session": "ses_9eee09f5f29c4cb08f8745f0077a3499",
+      "model": "deepseek-v4.1-flash",
+      "calls": [
+        {
+          "id": "0217938033178566097278e78ff109d0bf5de77146291ac660c93",
+          "created": 1793803324,
+          "model": "deepseek-v4.1-flash",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 50395,
+            "completion_tokens": 853,
+            "total_tokens": 51248,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "cost": 0,
+            "opencode": {
+              "billing_source": "go",
+              "list_cost": 0.00807105,
+              "allowance": 0.00484263,
+              "tokens": {
+                "input": 50395,
+                "output": 853,
+                "reasoning": 0,
+                "cache_read": 0,
+                "cache_write_5m": 0,
+                "cache_write_1h": 0
+              }
+            }
+          },
+          "prompt_sha256": "39d9ccddd8dd704c33621950ed07bcf17ca0a0c7cf29e60f207f9200d69fa2fe"
+        },
+        {
+          "id": "0217938034582234883e653edd60bc78b7b920f959874d9120735",
+          "created": 1793803463,
+          "model": "deepseek-v4.1-flash",
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 58848,
+            "completion_tokens": 855,
+            "total_tokens": 59703,
+            "prompt_tokens_details": {
+              "cached_tokens": 50304
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "cost": 0,
+            "opencode": {
+              "billing_source": "go",
+              "list_cost": 0.00194551,
+              "allowance": 0.00116731,
+              "tokens": {
+                "input": 8544,
+                "output": 855,
+                "reasoning": 0,
+                "cache_read": 50304,
+                "cache_write_5m": 0,
+                "cache_write_1h": 0
+              }
+            }
+          },
+          "prompt_sha256": "297ca29f7542ff8848c798963da07b0b8f0a3b7d63c3e0611955a692c91ab953"
+        }
+      ]
+    }
+  ]
+}

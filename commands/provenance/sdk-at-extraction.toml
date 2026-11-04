@@ -1,0 +1,6 @@
+# Historical extraction metadata only.
+# This is the original shell-client coordinate used when these commands
+# were extracted. The runtime manifest now consumes the in-repository
+# Shell provider via path, not this revision.
+git = "https://github.com/shuyra-arche/shell.git"
+rev = "b910582fc9dc0fd732f279d94f2cfca89f4c8c8f"

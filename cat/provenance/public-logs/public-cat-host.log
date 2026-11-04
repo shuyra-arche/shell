@@ -1,0 +1,31 @@
+   Compiling cat-command-tests v0.1.0 (/workspace/cat-shell-public/cat/tests)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.87s
+     Running unittests lib.rs (tests/target/x86_64-unknown-linux-gnu/debug/build/cat-command-tests/dcf00241e1674e6d/out/cat_command_tests-dcf00241e1674e6d)
+
+running 23 tests
+test cases::failures::call_failure_returns_reason_one ... ok
+test cases::failures::data_write_failure_returns_reason_one_without_further_read_or_drain ... ok
+test cases::failures::binding_reply_without_binding_returns_reason_one ... ok
+test cases::failures::direct_binding_failure_returns_reason_one ... ok
+test cases::failures::drain_failure_returns_reason_one ... ok
+test cases::failures::greeting_write_failure_returns_reason_one_without_read ... ok
+test cases::failures::missing_args_returns_reason_one_before_io ... ok
+test cases::failures::injected_failure_returns_reason_one ... ok
+test cases::failures::non_binding_reply_returns_reason_one ... ok
+test cases::failures::missing_resolve_mark_pie_returns_reason_one ... ok
+test cases::failures::read_failure_returns_reason_one_without_drain ... ok
+test cases::failures::selected_shell_copy_failure_returns_reason_one_without_fallback ... ok
+test cases::failures::selected_shell_copy_port_failure_returns_reason_one_without_fallback ... ok
+test cases::shell::outer_shell_selector_ignores_alive_kind_and_vestor ... ok
+test cases::shell::selects_shell_for_any_matching_pie_without_terminal_io ... ok
+test cases::failures::selected_shell_boot_failure_returns_reason_one_without_fallback ... ok
+test cases::failures::selected_shell_source_port_failure_returns_reason_one_without_fallback ... ok
+test cases::shell::wrong_pie_mark_falls_back_to_terminal_identity ... ok
+test cases::shell::wrong_pie_owner_falls_back_to_terminal_identity ... ok
+test cases::terminal::echoes_arbitrary_and_empty_data_verbatim ... ok
+test cases::terminal::greeting_self_id_deadline_and_first_resolve_mark_pie_are_exact ... ok
+test cases::terminal::suspend_drains_once_and_succeeds_without_another_read ... ok
+test cases::terminal::interrupt_drains_once_and_succeeds_without_another_read ... ok
+
+test result: ok. 23 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

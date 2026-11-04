@@ -1,0 +1,15 @@
+[package]
+name = "cat-command-tests"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace]
+resolver = "3"
+
+[lib]
+path = "lib.rs"
+bench = false
+doctest = false
+
+[dependencies]

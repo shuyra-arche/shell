@@ -1,0 +1,76 @@
+{
+  "group": "shell-consolidation-20261104",
+  "mechanism": "Genuine DeepSeek API roles through configured OpenCode Go; snapshots only; executor performs tests, no interactive dsh CLI claim",
+  "roles": {
+    "namer": {
+      "session": "ses_13bf494789934a468d42f52ed80825c5",
+      "model": "deepseek-v4.1-flash",
+      "calls": [
+        {
+          "id": "gw-b177560bc249-3e1495",
+          "model": "deepseek-v4.1-flash",
+          "prompt_sha256": "a16ebf7cdaedd68c49624feeb49fbb8ecf9eb98a932d72c0c66d25c0f6d7a2f9",
+          "finish_reason": "stop"
+        },
+        {
+          "id": "gw-b1ee0dc931a5-359ca3",
+          "model": "deepseek-v4.1-flash",
+          "prompt_sha256": "556c146986ed10f5b72bdd51a6594f1ad758920c5ae93fde3fc5f63e492c93ad",
+          "finish_reason": "stop"
+        }
+      ]
+    },
+    "worker": {
+      "session": "ses_247c4fa398d9455bb883d920b9195cbc",
+      "model": "deepseek-v4.1-flash",
+      "calls": [
+        {
+          "id": "chatcmpl-d2cd5079a80f43dab96bea65f0d08bc5",
+          "model": "deepseek-v4.1-flash",
+          "prompt_sha256": "9cf7dd5873f73b85fc57d564e76be9257e9dfa29263675ae5bbd8742fcbc1fa2",
+          "finish_reason": "stop"
+        },
+        {
+          "id": "chatcmpl-df7f5afc8a004e90917057695a908532",
+          "model": "deepseek-v4.1-flash",
+          "prompt_sha256": "39e49d6bf0deb00ca5941f7b5eac0b79a2108160bde9942fef7e7ee619a16201",
+          "finish_reason": "stop"
+        }
+      ]
+    },
+    "reviewer": {
+      "session": "ses_da4caff251f84f259f626b2d0ba08be8",
+      "model": "deepseek-v4.1-flash",
+      "calls": [
+        {
+          "id": "chatcmpl-ROduKY5T8XfQNquOhvtOd2MR",
+          "model": "deepseek-v4.1-flash",
+          "prompt_sha256": "3c36f6b37a2a642853c5beed9e74661576dff03f25505878d5c886444a169d9c",
+          "finish_reason": "stop"
+        }
+      ]
+    }
+  },
+  "review": "APPROVE",
+  "reviewed_code_sha256": {
+    "Cargo.toml": "f2fb1f14f0b627eac1fe141b50463a122ab4ec6923444821c08f8f4f902026ca",
+    "Cargo.lock": "4288756f3ef9fe0e0f89990ed3c5d6b780ec79a7a43b8d92e650237b8064c3aa",
+    ".cargo/config.toml": "7f96bda29483ffeafaa6dbb21659a86655723b4165085bdf583628fc12a84ce0",
+    "commands/Cargo.toml": "01a261f699a00e03715d5c046b46adffe22db9e43b3bbf026c29b30c6987b7ac",
+    "commands/Cargo.lock": "a72549a226ee41776652679a8b09c8923416ec6fb7d461b9800e77493ae035dd",
+    "commands/tests/test_migration.py": "3601f9640946b8f1cd07b7c0753641d8e4c541389cd19aa8f4f51b4ea39db55d",
+    "commands/provenance/sdk-at-extraction.toml": "7eeba8f859aa2ddbd8acb6d103b7cf674bbaed972940a1ba080f916aaa3f8751",
+    "cat/Cargo.toml": "e48eff4ffa57f78be31dc417265ae610df0d0e4a3ddd7581ae524c5462ece817",
+    "cat/Cargo.lock": "20dbada175d395b9a104c7f41f9511df3500d4e95189e50b073e510d69d3e19b",
+    "cat/command/Cargo.toml": "f17e61e5c7c9c6ae122b89d260e4798b82def48b9c75bd37b4a1ed479c4fe4bc",
+    "images/Cargo.toml": "b47807b512b1427b029c992c86dfad4f60390a9643c3e7006b1e1300c25e0a21",
+    "images/Cargo.lock": "c5165b5b4250cbc79540122c70b279503f6e590355a14637f65167804e40bc0e",
+    "images/src/lib.rs": "0481fb85a1a80cdd6b39bf768a7ac2510b5affab97b1088f8a479a2d11b44716",
+    "images/tests/builds.rs": "328b08a613ca40c27e9c3a4b812e934cedc3e033d098d12de240e414c5b55843",
+    "images/audit.py": "99bccc520583dc245873e69ace6fb9e032ef09ae6c5ba762da2b042de6bff08c",
+    "images/verification/Cargo.toml": "8eb9ed64d8eaba1f388a303b2e7727324240132931126b19c599ca2ba85681a4",
+    "images/verification/Cargo.lock": "cef4fa1bfc9a747ac4600aca5c415d4045abd583e9468bf840136f8e56a29894",
+    "images/verification/src/main.rs": "4951666e0b4cf0b7f1318588c5ca64081b6c7a7f782109c539ce3cf8d761cd0e"
+  },
+  "publication_checks": "Pending immutable public head upload, anonymous clone, exact-revision consumers and repeated validation; recorded separately after publication"
+}

@@ -1,5 +1,5 @@
 [workspace]
-members = ["api", "client", "declaration"]
+members = ["api", "client", "declaration", "lisp"]
 default-members = ["api", "declaration"]
 resolver = "3"
 
