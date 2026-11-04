@@ -1,5 +1,10 @@
 # Shell interfaces and Lisp library
 
+The consolidated provider also contains the server entry and all six command
+images. Use [`shell-images-declaration`](images/README.md) for the seven-image
+build inventory and the current SDK dependency contract. The extraction notes
+below describe the individual interface, Lisp and server slices.
+
 Extraction from `anreonyr/sqware` at
 `94e114614bec53424ac55e640fc80cf19a3e7107`. The root workspace contains four
 crates: three interface crates and one language library.

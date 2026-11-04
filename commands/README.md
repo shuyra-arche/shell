@@ -1,5 +1,10 @@
 # commands
 
+This document records the extraction contract at PR #2. In the consolidated
+provider, `shell-client` uses the sibling `../client` path, replacing the old
+Git pin described below. The old pin remains recorded and tested as historical
+metadata. See [the consolidation contract](../images/README.md).
+
 Five Shell command resource images extracted from frozen Source revision
 `94e114614bec53424ac55e640fc80cf19a3e7107`:
 

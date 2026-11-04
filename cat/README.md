@@ -1,5 +1,10 @@
 # cat
 
+This document records the extraction contract at PR #5. In the consolidated
+provider, Shell API/client dependencies use `../../api` and `../../client`,
+replacing the historical `b910582` Git pin described below. Runtime source and
+original behavior tests are unchanged; see [the consolidation contract](../images/README.md).
+
 The Cat resource image, kept in the existing Shell repository by the user's
 explicit choice. Historical note: an earlier attempt to create a standalone
 Cat repository was denied by the hosting service (403); that record is

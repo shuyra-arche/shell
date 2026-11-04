@@ -148,7 +148,6 @@ checksum = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
 [[package]]
 name = "shell-api"
 version = "0.1.0"
-source = "git+https://github.com/shuyra-arche/shell.git?rev=b910582fc9dc0fd732f279d94f2cfca89f4c8c8f#b910582fc9dc0fd732f279d94f2cfca89f4c8c8f"
 dependencies = [
  "env",
  "pipe-api",
@@ -157,7 +156,6 @@ dependencies = [
 [[package]]
 name = "shell-client"
 version = "0.1.0"
-source = "git+https://github.com/shuyra-arche/shell.git?rev=b910582fc9dc0fd732f279d94f2cfca89f4c8c8f#b910582fc9dc0fd732f279d94f2cfca89f4c8c8f"
 dependencies = [
  "env",
  "execution",

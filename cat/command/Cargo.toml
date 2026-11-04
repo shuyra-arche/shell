@@ -24,8 +24,8 @@ env = { git = "https://github.com/shuyra-arche/env.git", rev = "d3000253cd5d13d4
 resource = { git = "https://github.com/shuyra-arche/resource.git", rev = "dbc96834f50f094b5c386e54a0a2ae5560dcd7f8" }
 execution = { git = "https://github.com/shuyra-arche/execution.git", rev = "1b333a28bc4c34beaea3f7986a9bb6e8ab2db414" }
 pipe-client = { git = "https://github.com/shuyra-arche/pipe.git", rev = "4fce76372beb6c5ab8567232516f156b3d1032eb" }
-shell-api = { git = "https://github.com/shuyra-arche/shell.git", rev = "b910582fc9dc0fd732f279d94f2cfca89f4c8c8f" }
-shell-client = { git = "https://github.com/shuyra-arche/shell.git", rev = "b910582fc9dc0fd732f279d94f2cfca89f4c8c8f" }
+shell-api = { path = "../../api" }
+shell-client = { path = "../../client" }
 system-api = { git = "https://github.com/shuyra-arche/system.git", rev = "9e5d63ca536a176583cf1b0054b4ecf7ddd88257" }
 system-client = { git = "https://github.com/shuyra-arche/system.git", rev = "5a792ff2d39901a970925b1a6d63206adf6c16d8" }
 terminal-client = { git = "https://github.com/shuyra-arche/terminal.git", rev = "c447c0761835339a39efdf2ddd8101ebf80db15a" }

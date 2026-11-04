@@ -6,6 +6,10 @@ substitutions applied at the extraction boundary, then compares the reconstructe
 bytes with the recorded original SHA-256 values. A fail-closed template branch is
 retained for historical preparation, but the final-state test requires the
 materialized manifest and the actual immutable Shell revision.
+
+The runtime manifest now expects the in-repository Shell provider paths. The
+original revision pin is preserved only as factual extraction metadata and is
+checked by a separate historical-SDK test.
 """
 
 from __future__ import annotations
@@ -178,6 +182,14 @@ class MigrationContract(unittest.TestCase):
         self.assertNotIn(MARKER, text)
         return tomllib.loads(text), False
 
+    def test_historical_sdk_pin_is_recorded(self) -> None:
+        data = load_toml(ROOT / "provenance" / "sdk-at-extraction.toml")
+        self.assertEqual(
+            data,
+            {"git": SHELL_URL, "rev": SHELL_REVISION},
+            "historical SDK metadata must record the original Shell pin",
+        )
+
     def test_runtime_manifest_coordinates_and_immutable_pins(self) -> None:
         data, pending = self._runtime_manifest()
         self.assertFalse(
@@ -210,10 +222,7 @@ class MigrationContract(unittest.TestCase):
 
         dependencies = data["dependencies"]
         self.assertEqual(set(dependencies), EXPECTED_DEPENDENCIES)
-        self.assertEqual(
-            dependencies["shell-client"],
-            {"git": SHELL_URL, "rev": SHELL_REVISION},
-        )
+        self.assertEqual(dependencies["shell-client"], {"path": "../client"})
 
         for name, (url, revision) in PINNED.items():
             self.assertEqual(dependencies[name], {"git": url, "rev": revision})
