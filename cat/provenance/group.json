@@ -1,0 +1,63 @@
+{
+  "provider": "opencode-go",
+  "model": "deepseek-v4.1-flash",
+  "harness": "scoped direct API, not dsh",
+  "fresh_group_for": "Cat-in-Shell PR",
+  "old_checkpoint_sealed": "27aaf941597ddfa3e512178acd7285e445de76fb",
+  "sessions": {
+    "namer": {
+      "session": "shell-cat-namer-454f54e5-3f52-4dc3-820c-a4f2db5c8125",
+      "audited_responses": 2,
+      "reported_models": [
+        "deepseek-v4.1-flash"
+      ],
+      "reported_billing_sources": [
+        "go"
+      ],
+      "tool_calls": {
+        "read_file": 4
+      },
+      "http_errors": []
+    },
+    "worker": {
+      "session": "shell-cat-worker-871c03a6-f8e0-41cf-9ec0-d6985721f7f8",
+      "audited_responses": 22,
+      "reported_models": [
+        "deepseek-v4.1-flash"
+      ],
+      "reported_billing_sources": [
+        "go"
+      ],
+      "tool_calls": {
+        "read_file": 19,
+        "list_files": 4,
+        "apply_patch": 8
+      },
+      "http_errors": [
+        {
+          "session": "shell-cat-worker-871c03a6-f8e0-41cf-9ec0-d6985721f7f8",
+          "endpoint": "https://opencode.ai/inference/go/openai/v1/chat/completions",
+          "http_error": 401,
+          "body": "{\"error\":{\"type\":\"server_error\",\"message\":\"Upstream request failed: Invalid credential\"}}"
+        }
+      ]
+    },
+    "reviewer": {
+      "session": "shell-cat-reviewer-fd68603d-11e2-46db-8ab0-5971e2125657",
+      "audited_responses": 17,
+      "reported_models": [
+        "deepseek-v4.1-flash"
+      ],
+      "reported_billing_sources": [
+        "go"
+      ],
+      "tool_calls": {
+        "read_file": 55,
+        "list_files": 1
+      },
+      "http_errors": []
+    }
+  },
+  "reviewer_final_response_recovered_from_audit": true,
+  "recovery_reason": "harness treated standard null tool_calls as iterable after final response; exact model response retained in audit and recovered without rerunning reviewer"
+}

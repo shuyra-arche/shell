@@ -1,116 +1,87 @@
-# cat — isolated command preparation
+# cat
 
-Confirmed destination: `shuyra-arche/cat`, package/library `cat`, binary
-`prog-cat`, main path `command/src/main.rs`. This snapshot is validated for
-Draft PR delivery; merge is not authorized.
-
-No Unit, Declaration crate, composition entry, or Deployment lives here. Shell
-keeps the existing supply binding and port declaration; Vanllia later maps the
-external Cat image.
-
-## Preserved behavior
-
-- Shell pipe mode is selected when the first argument is an owner and any raw
-  pie has that owner and `shell_api::MARK`. The outer selector checks only
-  owner and mark; it does not add alive, kind, vestor, or other narrowing.
-- Once selected, `Boot::take`, the `source` Read port, the `copy` Write port,
-  or `shell_client::copy(source, copy, false)` failure returns reason 1. It
-  never falls back to Terminal.
-- Terminal/identity mode uses `Io::injected`, the first Resolve-mark pie,
-  `Face::direct`, and `Resolve(unit::self_id())` with `AtMost(1000)`. It emits
-  the original identity greeting, echoes data verbatim, and on EOF, Interrupt,
-  or Suspend drains once and succeeds.
-- Terminal failures propagate and map to reason 1. There is no added cleanup,
-  retry, or other filtering.
-
-The real Shell client is not reproduced here.
-
-## Production mapping
-
-- Baseline `programs/src/user/cat/main.rs` is `command/src/main.rs`.
-- The baseline `#[programs::entry] fn main()` becomes `#[mold::entry] fn
-  main()` and delegates to `cat::run()`; it no longer depends on `programs`.
-- The baseline identity function `fn run() -> Result<(), ()>` is extracted
-  near-verbatim as the private `terminal()` in `command/src/run.rs`.
-- The new public `cat::run() -> Result<(), env::Reason>` owns both the Shell
-  selector and the Terminal fallback, preserving the original reason-1
-  mapping.
-- `command/src/lib.rs` is `no_std` plus `alloc` and reexports `run`.
-
-## Migration / image metadata
-
-- Image: `cat`
-- Binary: `prog-cat`
-- Source: `programs/src/user/cat/main.rs`
-- Target repository: `shuyra-arche/cat`
-- Target path: `command/src/main.rs`
-- Role: `shell-command`
-- Composition owner / owner: `shuyra-arche/shell`
-- Shell-owned supply: source `system/initrd`, resource `cat`, slot `shell-cat`,
-  permission `FETCH`
-- Shell command binding: `cat`
-- `source` port direction: Read
-- `copy` port direction: Write
-- Copy third flag `uppercase`: `false`
-
-## Verified Shell provider
-
-- Pull request: `https://github.com/shuyra-arche/shell/pull/1`
-- Verified immutable revision: `b910582fc9dc0fd732f279d94f2cfca89f4c8c8f`
-- The coordinator's detached, clean clone matched all eight frozen
-  API/client/declaration source and manifest files byte-for-byte.
-- `client/src/lib.rs` SHA-256:
-  `51154dc20d2b9f652caef4febb1ab640ccc8923cde0024891230acde705b3614`
-- Evidence: `docs/shell-provider-verification.json`
-
-The provider's own verification reports its host tests and RISC-V builds. Cat's
-native dependency lock, locked/offline release and debug ELF builds, and final
-23-pass/0-fail host run have also passed; see `docs/validation.json`.
-
-## Toolchains
-
-- Frozen source declaration: `nightly-2026-09-04`
-- Actual available validation toolchain: `nightly-2026-10-09`
-
-`rust-toolchain.toml` documents the available validation toolchain. It does
-not claim the frozen source and validation toolchains are identical.
+The Cat resource image, kept in the existing Shell repository by the user's
+explicit choice. Historical note: an earlier attempt to create a standalone
+Cat repository was denied by the hosting service (403); that record is
+historical only and will never be retried. The statements below describe this
+tree as currently observed, not global behavior outside it.
 
 ## Layout
 
-- `command/src/main.rs`: `no_std`/`no_main`; `mold::entry` to `cat::run`.
-- `command/src/lib.rs`: `no_std` plus `alloc`; reexports the extracted run.
-- `command/src/run.rs`: extracted selector and Terminal implementation.
-- `command/build.rs`: only `DEP_EXECUTION_LINKER_SCRIPT` and source tracking.
-- `command/Cargo.toml`: final package manifest pinned to the verified Shell
-  revision.
-- `Cargo.toml`: workspace manifest; panic-abort profiles and `tests` excluded.
-- `tests/`: dependency-free host workspace projecting the actual
-  `command/src/run.rs` through `#[path]` and crate-self aliases.
+- `command/` — runtime crate `cat` with bin `prog-cat`. Source, manifest,
+  build script, and dependency pins are unchanged.
+- `declaration/` — independent descriptor workspace
+  `shell-cat-image-declaration`, exporting `CAT: unit::ImageBuild` and
+  `BUILDS = &[CAT]` on `unit` rev
+  `90396f0fda376e0693fb1b9553aa21864d241057`. It carries build coordinates
+  only: image `cat`, provider-relative manifest `cat/command/Cargo.toml`,
+  package `cat`, bin `prog-cat`, empty features, target
+  `riscv64gc-unknown-none-elf`, profile `release`,
+  `default_features = true`. No UnitFile, ports, catalogue, or Boot metadata
+  is duplicated here.
+- `tests/` — 23 host tests covering the runtime workspace; unchanged.
 
-`unit::self_id()` resolves through `env`'s reexported `unit` module; no
-separate direct `unit` crate dependency is declared.
+`cat/` is a nested runtime workspace (`members = ["command"]`,
+`exclude = ["tests", "declaration"]`); `declaration/` has its own `[workspace]`.
+The root SDK workspace and `commands/` are untouched.
 
-## Validation status
+## Preserved behavior
 
-The root and command manifests and native lockfile are finalized. Native
-dependency resolution passed with 27 packages; all 24 non-Shell external lock
-entries match the baseline versions, sources, and checksums. Canonical ABI/API
-type identities are unique, and there is no Source/programs/Lisp dependency.
+- Selector: owner from the first argument matched against `resource::raw::pies()`
+  by owner and `shell_api::MARK`. On match it takes `shell_client::Boot::take()`,
+  ports `"source"` as Read and `"copy"` as Write, then
+  `shell_client::copy(source, copy, false)` and returns; errors map to `1` with
+  no fallback.
+- Terminal: identity `Resolve` via `Grant::Resolve.mark()` pie and
+  `Face::direct`, `AtMost(1000)`, greeting
+  `"cat: task={} principal={}:{}\n"`, echo, and
+  `Read::Eof | Read::Interrupt | Read::Suspend` draining `io` once before
+  `Ok(())`; errors map to `1`.
 
-Both `--locked --offline` RISC-V builds passed for package `cat`, binary
-`prog-cat`:
+## Ownership and binding
 
-- Release: 20.445 s; static `ET_EXEC`, machine 243, no interpreter; SHA-256
-  `679e525696d90b09a2220ee6ece0a72a7701fada6a2f1f326b64e46e1b482b94`
-- Debug: 13.499 s; static `ET_EXEC`, machine 243, no interpreter
+The ownership source key is the single literal `system/initrd`; resource
+`cat`, slot/mark `shell-cat`, permission `FETCH`, Shell-owned. The runtime
+selects by Shell owner plus mark. The descriptor names build coordinates only
+and duplicates no UnitFile, ports, catalogue, or Boot metadata. The root SDK
+`bindings_align_with_commands_and_fetch_initrd` contract passes.
 
-Both ELFs contain the expected `_start`/`clean_ret`. The final locked/offline
-host run passed 23 tests with 0 failures. Earlier projection-path and
-fixture-nesting compile failures remain recorded in `VERIFICATION.md`.
+## Build configuration and relocation
 
-Shipped validation references are `docs/validation.json`,
-`docs/dependency-and-elf.json`, and `docs/shell-provider-verification.json`;
-raw logs ship under `docs/logs/`. Delivery intent is Draft PR only
-(`draft_pr: true`, `merge: false`); no PR is claimed yet. Runtime behavior,
-Integration/Vanllia image work, and QEMU remain unperformed and out of scope
-for this worker.
+Native commands run with cwd `cat/` so `cat/.cargo/config.toml` flags load.
+The descriptor manifest path `cat/command/Cargo.toml` is provider-relative;
+later integration prepends the chosen Shell checkout prefix once and retains
+image `cat`, package `cat`, bin `prog-cat`, target, profile, and features
+verbatim. There is no dependency on PR2 `effeb09c170f0259c3d79687754b02aa41f615fe`
+or on PR3 `b72bbfca6455159a9bf9a0b250877b7e660e8c52` or on any server branch.
+Checked 2026-11-04: PR3 (branch `codex/shell-lisp-library`, based on main
+`f4ab6a2dc3924959ac5096305b582cfb479569bd`) changes root
+`Cargo.toml`/`Cargo.lock`/`README` plus `docs/lisp*` and `lisp/`, with zero
+`cat/` paths; PR2's compare is all `commands/`, zero `cat/`; no published
+server branch or PR was observed. Cat writes stay under `cat/` only, leaving
+the root workspace/SDK, `commands/`, `lisp/`, and server untouched. Work is on
+private branch `codex/shell-cat-image` from main `f4ab6a2d…`; heads must be
+rechecked before publication.
+
+## Pins and toolchain
+
+Runtime: `mold f52501f4c91b686eded8b4bcd743b4e96084b7f9`,
+`env d3000253cd5d13d466e91fafd4dbb27a5ec5aaae`,
+`resource dbc96834f50f094b5c386e54a0a2ae5560dcd7f8`,
+`execution 1b333a28bc4c34beaea3f7986a9bb6e8ab2db414`,
+`pipe-client 4fce76372beb6c5ab8567232516f156b3d1032eb`,
+`shell-api`/`shell-client b910582fc9dc0fd732f279d94f2cfca89f4c8c8f`,
+`system-api 9e5d63ca536a176583cf1b0054b4ecf7ddd88257`,
+`system-client 5a792ff2d39901a970925b1a6d63206adf6c16d8`,
+`terminal-client c447c0761835339a39efdf2ddd8101ebf80db15a`; descriptor `unit`
+as above. Toolchain `nightly-2026-09-04`
+(`rustc 1.100.0-nightly (a69a63265 2026-09-03)`).
+
+## Validation
+
+Static RISC-V debug/release `prog-cat` ELFs and all host suites pass; exact
+results, commands, logs, and graph comparisons are in
+`provenance/validation.json` and `provenance/dependency-and-elf.json`.
+The fresh independent review approved the frozen code/config snapshot; see
+`provenance/review.md`. Public checkout and publishing follow this local
+checkpoint. `runtime_acceptance` remains false and no QEMU run was performed.

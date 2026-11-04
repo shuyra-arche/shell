@@ -1,0 +1,60 @@
+{
+  "graphs": {
+    "runtime": {
+      "packages": 27,
+      "external_entries_equal_baseline": 24,
+      "canonical_type_identities_unique": true,
+      "no_source_or_lisp_dependency": true
+    },
+    "descriptor": {
+      "packages": 12,
+      "external_entries_equal_baseline": 11,
+      "canonical_type_identities_unique": true,
+      "no_source_or_lisp_dependency": true
+    }
+  },
+  "artifacts": [
+    {
+      "profile": "debug",
+      "file": "cat/target/riscv64gc-unknown-none-elf/debug/prog-cat",
+      "sha256": "43fa2aa739e13442943f79a2bfe8e12a65fa7126f1528a45253f2c1f1b26f4b1",
+      "elf_class": 64,
+      "type": 2,
+      "machine": 243,
+      "entry": "0x1c69a",
+      "load_base": "0x10000",
+      "entry_executable": true,
+      "has_dynamic_segment": false,
+      "has_interpreter": false,
+      "unique_runtime_symbols": {
+        "_start": "0x1c69a",
+        "clean_ret": "0x10018"
+      },
+      "unresolved_symbols": 0,
+      "bytes": 5933640,
+      "gzip_roundtrip": true,
+      "gzip_bytes": 1435354
+    },
+    {
+      "profile": "release",
+      "file": "cat/target/riscv64gc-unknown-none-elf/release/prog-cat",
+      "sha256": "9b73ace7a3e46b52b71cf41d5a0b58d35f2d010dea6fb8b8e3cae7409ccbef5e",
+      "elf_class": 64,
+      "type": 2,
+      "machine": 243,
+      "entry": "0x153ce",
+      "load_base": "0x10000",
+      "entry_executable": true,
+      "has_dynamic_segment": false,
+      "has_interpreter": false,
+      "unique_runtime_symbols": {
+        "_start": "0x153ce",
+        "clean_ret": "0x10000"
+      },
+      "unresolved_symbols": 0,
+      "bytes": 289072,
+      "gzip_roundtrip": true,
+      "gzip_bytes": 77475
+    }
+  ]
+}
