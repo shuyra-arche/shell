@@ -1,0 +1,53 @@
+{
+  "source_revision": "94e114614bec53424ac55e640fc80cf19a3e7107",
+  "history": {
+    "source_commit": "35b3d73e13f695c935665efa6d79b12265af98e7",
+    "filtered_commit": "d3848262c01eefbe03526959a7eecfb75380eebf",
+    "mapping": {
+      "35b3d73e13f695c935665efa6d79b12265af98e7": "d3848262c01eefbe03526959a7eecfb75380eebf"
+    },
+    "author": {
+      "name": "anreonyr",
+      "email": "anreonyr@gmail.com"
+    },
+    "authored_at": "2026-10-09T18:50:20Z",
+    "message": "feat(shell): integrate explicit pipes, job control and login",
+    "authorship": "Author, dates and message are preserved on the filtered commit; no new attribution is claimed."
+  },
+  "files": [
+    {
+      "name": "emit",
+      "source": "programs/src/user/emit/main.rs",
+      "path": "emit/src/main.rs",
+      "sha256": "381e351118c2a50beeb997d4f4c8b6eb9744afb4a66c5bc9db819431ef094cdb"
+    },
+    {
+      "name": "upper",
+      "source": "programs/src/user/upper/main.rs",
+      "path": "upper/src/main.rs",
+      "sha256": "c684fc4c06d2626de4e8972687d6eaaa46eddaa052f259d2a0e54d942e2be54b"
+    },
+    {
+      "name": "fail",
+      "source": "programs/src/user/fail/main.rs",
+      "path": "fail/src/main.rs",
+      "sha256": "4f359d398365b6bbb8db178fdc5c7607df7b203bf70e5e9a09e8266e1f8432d8"
+    },
+    {
+      "name": "spin",
+      "source": "programs/src/user/spin/main.rs",
+      "path": "spin/src/main.rs",
+      "sha256": "d4c3733a5d3daf0c6115e1a60498cec795e98972040e4c3acf536d4b446596c2"
+    },
+    {
+      "name": "workers",
+      "source": "programs/src/user/workers/main.rs",
+      "path": "workers/src/main.rs",
+      "sha256": "a8ed27571e312137bef13dce03ae706e3cc0e990c826206eccadc6856a0774d5"
+    }
+  ],
+  "references": {
+    "programs/src/user/shell/declaration/src/commands.rs": "070ec4924376962ea4d2ccf882375ef0ee016a41d00f692074a88c79f3cd8e9e",
+    "crates/composition/src/image_builds.rs": "2ee225d1870e3fcd7ce0f97dd3f9ee3bd7b431e496e528f297e78e29e2f33543"
+  }
+}

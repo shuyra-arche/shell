@@ -1,10 +1,10 @@
 #![no_std]
 #![no_main]
 extern crate alloc;
-extern crate programs;
+extern crate execution;
 use core::sync::atomic::{AtomicUsize, Ordering};
 static COUNT: AtomicUsize = AtomicUsize::new(0);
-#[programs::entry]
+#[mold::entry]
 fn main() -> Result<(), env::Reason> {
     let mut boot = shell_client::Boot::take().map_err(|_| 1usize)?;
     let mut port = boot
