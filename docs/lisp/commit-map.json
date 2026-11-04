@@ -1,0 +1,31 @@
+{
+  "source_baseline": "94e114614bec53424ac55e640fc80cf19a3e7107",
+  "shell_base": "f4ab6a2dc3924959ac5096305b582cfb479569bd",
+  "method": "Path-filtered real source ancestry prefixed into lisp/ and overlaid onto verified Shell main; original author/committer/date/message and surviving ancestry retained. No merge performed.",
+  "commits": [
+    {
+      "source": "50ad14b1123d47900de42ff2bc2d812ec6fbcc36",
+      "filtered": "ad2ab96a04a4988abd5d6c8e0bb894d44c2094d3",
+      "candidate": "19aa4d680d0047328b6bc6ba563c6f410a8063da",
+      "metadata_equal": true
+    },
+    {
+      "source": "7dfb36ccc22d64158e032cce666f798e8d22115e",
+      "filtered": "ed1da0048c416ca28cbfe7c3f5194ff940cfc99e",
+      "candidate": "19b70d4c0e249396c44d4b57e14e7cef9d91a257",
+      "metadata_equal": true
+    },
+    {
+      "source": "835b2aad3fb3ac58ebf999f887e1cc5c315f166b",
+      "filtered": "13af6f209e6fe80e798d97fffdff51f8e50a4cda",
+      "candidate": "48a1e81248f10f5d2be3620312991e3a949b3bb8",
+      "metadata_equal": true
+    },
+    {
+      "source": "b61f9946537958766e56377e664cdeac3263fbc1",
+      "filtered": "3ee805b24caedc89e5664a781499e4ae05363dd8",
+      "candidate": "3d1ce07175c079aa3ffa0d8ab42a02c6395746be",
+      "metadata_equal": true
+    }
+  ]
+}

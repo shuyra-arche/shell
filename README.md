@@ -1,16 +1,23 @@
-# Shell interfaces
+# Shell interfaces and Lisp library
 
-Interface-only extraction from `anreonyr/sqware` at
-`94e114614bec53424ac55e640fc80cf19a3e7107`. This repository contains exactly
-three crates:
+Extraction from `anreonyr/sqware` at
+`94e114614bec53424ac55e640fc80cf19a3e7107`. This repository contains four
+crates: three interface crates and one language library.
 
 - `api` (`shell-api`): the `Launch` and `Catalogue` wire codecs.
 - `declaration` (`shell-declaration`): host-safe command and program declarations.
 - `client` (`shell-client`): startup `Boot` and pipe copy helpers.
+- `lisp` (`lisp`): the `no_std + alloc` language library (source, syntax,
+  diagnostic, library, runtime). Its only external dependency is
+  `logos = "=0.16.1"`; it has no system-protocol dependency and forbids
+  unsafe code.
 
-Server, Lisp, the six command implementations and their program runtime remain in
-Source for later slices. This slice is interface availability, not runtime
-independence or integration.
+The first three crates are interface availability for this repository. The
+`lisp` crate is the language library only; it is imported unchanged from the
+Source baseline. Source still builds and runs its own copies of these crates
+and its Shell consumers, including the Lisp native host and `stdlib.lisp`,
+until a separate intake slice replaces them. Nothing in this repository
+consumes `lisp` yet. Provider availability here is not intake acceptance.
 
 ## Build and test
 
@@ -20,7 +27,7 @@ Locked host default test command (workspace default members are `api` and `decla
 cargo test --locked
 ```
 
-Locked RISC-V build of all three crates:
+Locked RISC-V build of all workspace libraries:
 
 ```sh
 cargo build --locked --workspace --target riscv64gc-unknown-none-elf
@@ -31,6 +38,17 @@ cargo build --locked --workspace --target riscv64gc-unknown-none-elf
 the dependency graph. The imported contract test and the added wire and
 declaration tests are the available host verification for this slice; they do
 not establish runtime independence or integration acceptance.
+
+The `lisp` crate is tested independently of the workspace default members:
+
+```sh
+cargo test --locked -p lisp --target x86_64-unknown-linux-gnu
+cargo check --locked -p lisp --target riscv64gc-unknown-none-elf
+```
+
+These language tests cover the `lisp` crate only; they do not verify a Shell
+consumer. The `lisp` directory is imported byte-identical from the Source
+baseline and is unchanged in this extraction.
 
 ## Frozen interface
 
@@ -73,11 +91,14 @@ Unexpected write outcomes, including zero-length progress, fail.
 
 The six commands can move into this same repository once their shared
 image/runtime support is independent; that migration does not require Lisp.
-Lisp is instead a separate prerequisite for migrating the current REPL,
-native-host, and server side, including Shell service adapters. `programs::entry`,
-allocator, panic, and startup support also need independently reviewed slices.
-`cat` additionally depends on Terminal and System identity; `workers` depends on
-Execution and atomics. No new Lisp crate or repository is assumed.
+`programs::entry`, allocator, panic, and startup support also need independently
+reviewed slices. `cat` additionally depends on Terminal and System identity;
+`workers` depends on Execution and atomics.
+
+The `lisp` crate is present, but it is not wired into Shell. A future
+`shell-server -> lisp` dependency is not part of this slice, and Shell's Lisp
+native host, `stdlib.lisp`, and the source/intake/QEMU path remain in Source.
+See `docs/lisp-extraction.md` for the ownership, history, and verification plan.
 
 Vanllia #3 composition remains pinned to the `sqware` `shell-declaration`. This
 change does not modify Source or Vanllia.
@@ -88,6 +109,6 @@ change does not modify Source or Vanllia.
 2. Pin host composition separately.
 3. Move the six commands into this repository after their shared image/runtime
    support is independent; this step does not require Lisp.
-4. Migrate the REPL/native-host/server side separately after isolating Lisp and
-   its runtime support.
+4. Integrate the already-present `lisp` crate with the server side in a separate
+   slice; that slice depends on `lisp` by sibling path inside this repository.
 5. Avoid duplicate public API type identities while moving.
