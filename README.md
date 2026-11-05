@@ -13,12 +13,15 @@ Cargo's `prog-cat` image through its existing `shell-cat` resource slot. Command
 names, resource permissions and native image-construction limits are preserved.
 
 The declaration's production `unit` dependency retains its existing revision.
-The TOML and binary-record tests use a separate `unit-contract` development
-dependency pinned to the public protocol revision recorded in `Cargo.lock`.
-Run them without local source patches:
+The TOML and binary-record tests live in the independent
+[`tests/unit-document`](tests/unit-document/Cargo.toml) workspace, with its own
+public protocol dependency and lockfile. Keeping these dependencies outside the
+production workspaces lets Cargo source overlays unify the SDK during product
+builds. Run both suites without local source patches:
 
 ```sh
-cargo test --locked -p shell-declaration --test toml --test commands --target x86_64-unknown-linux-gnu
+cargo test --locked --manifest-path tests/unit-document/Cargo.toml --target x86_64-unknown-linux-gnu
+cargo test --locked -p shell-declaration --test commands --target x86_64-unknown-linux-gnu
 ```
 
 Extraction from `anreonyr/sqware` at
