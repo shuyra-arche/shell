@@ -5,6 +5,25 @@ images. Use [`shell-images-declaration`](images/README.md) for the seven-image
 build inventory and the current SDK dependency contract. The extraction notes
 below describe the individual interface, Lisp and server slices.
 
+The independent `vanllia` CLI discovers the runtime declaration at
+[`server/entry/unit.toml`](server/entry/unit.toml). It packages Shell as a
+requested Unit, together with its Pipe and Terminal dependencies and six command
+images. Its loader names Cargo's `prog-shell` bin; the `cat` command receives
+Cargo's `prog-cat` image through its existing `shell-cat` resource slot. Command
+names, resource permissions and native image-construction limits are preserved.
+
+The declaration's production `unit` dependency retains its existing revision.
+The TOML and binary-record tests live in the independent
+[`tests/unit-document`](tests/unit-document/Cargo.toml) workspace, with its own
+public protocol dependency and lockfile. Keeping these dependencies outside the
+production workspaces lets Cargo source overlays unify the SDK during product
+builds. Run both suites without local source patches:
+
+```sh
+cargo test --locked --manifest-path tests/unit-document/Cargo.toml --target x86_64-unknown-linux-gnu
+cargo test --locked -p shell-declaration --test commands --target x86_64-unknown-linux-gnu
+```
+
 Extraction from `anreonyr/sqware` at
 `94e114614bec53424ac55e640fc80cf19a3e7107`. The root workspace contains four
 crates: three interface crates and one language library.

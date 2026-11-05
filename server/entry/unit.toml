@@ -1,0 +1,53 @@
+schema = 1
+id = "shell"
+
+[loader]
+image = "prog-shell"
+
+[control]
+creation = "requested"
+requires = ["pipe", "terminal"]
+ready = "spawn"
+
+[[control.construction]]
+owner = "caller"
+identity = "caller"
+arguments = { min = 0, max = 64 }
+stack = { min = 0, max = 1048576 }
+max_image = 16777216
+
+[[supply.bindings]]
+source = "system/initrd"
+resource = "prog-cat"
+slot = "0x0f864dbc234a1048"
+permission = 1
+
+[[supply.bindings]]
+source = "system/initrd"
+resource = "emit"
+slot = "0xff33bc7bb8fa2007"
+permission = 1
+
+[[supply.bindings]]
+source = "system/initrd"
+resource = "upper"
+slot = "0x2220f537251ad418"
+permission = 1
+
+[[supply.bindings]]
+source = "system/initrd"
+resource = "fail"
+slot = "0x9f2fde8653b991b8"
+permission = 1
+
+[[supply.bindings]]
+source = "system/initrd"
+resource = "spin"
+slot = "0x000ff633d7d31624"
+permission = 1
+
+[[supply.bindings]]
+source = "system/initrd"
+resource = "workers"
+slot = "0x5f70e5024127bb7b"
+permission = 1
